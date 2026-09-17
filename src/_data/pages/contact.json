@@ -1,0 +1,34 @@
+{
+  "eyebrow": "Free estimate",
+  "heading": "Tell us what you are thinking about.",
+  "lede": "It takes about two minutes. We will call you back to set up a time to come look. No charge, and no sales pitch.",
+  "helpsHeading": "What helps us most",
+  "helps": [
+    "Photos of the room, the house, or the deck",
+    "Rough idea of how many rooms",
+    "Any color you already have in mind",
+    "When you were hoping to have it done"
+  ],
+  "faq": [
+    {
+      "question": "What happens after I send this?",
+      "answer": "We call you back to set up a time to come look at the job. That visit is free, takes about half an hour, and you get a written price afterwards. Nothing starts until you say so."
+    },
+    {
+      "question": "Does the estimate cost anything?",
+      "answer": "No. Coming out and giving you a price is free, whether or not you hire us."
+    },
+    {
+      "question": "Am I going to get sales calls?",
+      "answer": "No. We use what you send to get back to you about your painting job and nothing else. We do not add you to a list and we do not pass your details around."
+    },
+    {
+      "question": "How soon can you start?",
+      "answer": "It depends on the season and what we have booked. Spring and early summer fill up first. When we come look we will tell you honestly where you would fall in the schedule."
+    },
+    {
+      "question": "What if I only want a price for now?",
+      "answer": "That is fine, and it is one of the options on the form. Plenty of people are planning for next year or comparing a couple of quotes. We will give you the price and leave you alone about it."
+    }
+  ]
+}

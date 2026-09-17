@@ -1,0 +1,34 @@
+---
+layout: base.njk
+permalink: /notes/
+title: "Notes — Whitetail Painting Solutions, Juniata County PA"
+description: "Short, plain answers to the painting questions people ask us on job sites in Juniata County, Pennsylvania."
+---
+{% from "parts.njk" import phero, finale %}
+{%- set p = pages.blog -%}
+{{ phero("Notes", p.eyebrow, p.heading, p.lede) }}
+
+  <section class="band band-2">
+    <div class="shell">
+      {%- if collections.posts.length %}
+      <div class="svc svc-3">
+        {%- for post in collections.posts %}
+        <a class="card" href="{{ post.url }}">
+          {% photo post.data.cover, post.data.title, "ph-sq", "Photo — add a cover image" %}
+          <div class="card-body">
+            <div class="gcap" style="margin:0 0 10px">{{ post.date | readableDate }}</div>
+            <h3 class="d">{{ post.data.title }}</h3>
+            <p>{{ post.data.summary }}</p>
+            <div class="more">Read it &rarr;</div>
+          </div>
+        </a>
+        {%- endfor %}
+      </div>
+      {%- else %}
+      <p class="lede soft">Nothing here yet. New notes will show up on this page.</p>
+      {%- endif %}
+    </div>
+  </section>
+
+{{ finale(site, "Got a question we have not answered?",
+   "Ask us. We would rather talk it through than have you guess.") }}

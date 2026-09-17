@@ -1,0 +1,56 @@
+{
+  "eyebrow": "Interior painting",
+  "heading": "Inside the house, start to finish.",
+  "lede": "Walls, ceilings, doors, and trim. We move what we can, cover what we cannot, and keep the dust down while we work.",
+  "photo": "",
+  "includesHeading": "Everything inside a room.",
+  "includes": [
+    "Walls and ceilings",
+    "Doors, door frames, and window trim",
+    "Baseboard, crown, and chair rail",
+    "Closets and stairwells",
+    "Filling nail holes and small cracks",
+    "Caulking gaps where trim meets wall",
+    "Priming water stains and patches so they do not ghost through"
+  ],
+  "faq": [
+    {
+      "question": "Can we stay in the house while you paint?",
+      "answer": "Most people do. We work one area at a time so you keep the rest of the house. Modern interior paint has much less smell than it used to, though we still open windows and run a fan when we can."
+    },
+    {
+      "question": "Do you paint ceilings?",
+      "answer": "Yes, and we would rather do the ceiling at the same time as the walls. Painting a ceiling later means masking everything you just finished."
+    },
+    {
+      "question": "What about small repairs?",
+      "answer": "Nail holes, dents, hairline cracks and loose caulk are part of the job. Bigger drywall damage, water damage, or anything structural we will point out and price separately so you can see what it is."
+    },
+    {
+      "question": "How many coats do we get?",
+      "answer": "Two, over primer where primer is needed. A big color change can want a third, and if yours does we will say so before we start rather than after."
+    }
+  ],
+  "steps": [
+    {
+      "title": "Cover and clear",
+      "body": "Furniture to the middle of the room and under cover. Floors get drop cloths, not newspaper. Switch plates come off."
+    },
+    {
+      "title": "Patch and sand",
+      "body": "Nail holes, dents, and hairline cracks get filled, then sanded flat. This is the step that decides how the wall looks in daylight."
+    },
+    {
+      "title": "Prime what needs it",
+      "body": "Bare patches, water stains, and big color changes get primer first. Not every wall needs it, and we will not charge you for coats you do not need."
+    },
+    {
+      "title": "Two coats, cut by hand",
+      "body": "Edges and corners cut in with a brush, the rest rolled. Then the room goes back together and the floor gets swept."
+    }
+  ],
+  "galleryHeading": "Rooms we have finished.",
+  "stepsLede": "Interior work is mostly preparation. The painting part is the short end of it, and the part people notice is whether the patching was done properly and whether the lines are straight.",
+  "photoHint": "a finished interior room",
+  "category": "Interior"
+}

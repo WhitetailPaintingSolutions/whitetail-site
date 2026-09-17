@@ -1,0 +1,18 @@
+# Netlify build settings.
+#
+# Netlify runs the build in the cloud every time the CMS saves. Nobody
+# needs Node installed and nobody needs a terminal.
+
+[build]
+  command = "npm run build"
+  publish  = "_site"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# The CMS is a single page app. Without this, refreshing while inside
+# /admin returns a 404 because there is no file at that deeper path.
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200

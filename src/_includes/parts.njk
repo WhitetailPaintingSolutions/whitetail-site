@@ -1,0 +1,146 @@
+{# ============================================================
+   Reusable blocks. Import at the top of a page with:
+     {% from "parts.njk" import faq, reviews, finale, phero, gallery %}
+   ============================================================ #}
+
+{# ---------- inner page hero ----------
+   cta=false on the contact page: a button linking to the page you are
+   already standing on is a dead end. #}
+{% macro phero(crumb, eyebrow, heading, lede, cta=true) %}
+  <section class="phero">
+    <div class="shell">
+      <p class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; {{ crumb }}</p>
+      <div class="flank"><span>{{ eyebrow }}</span></div>
+      <h1 class="d">{{ heading }}</h1>
+      <p class="lede soft measure">{{ lede }}</p>
+      {%- if cta %}
+      <p style="margin-top:34px"><a class="btn" href="/contact/">Get a free estimate</a></p>
+      {%- endif %}
+    </div>
+  </section>
+{% endmacro %}
+
+
+{# ---------- questions ----------
+   A blank line in a CMS answer becomes a second paragraph. #}
+{% macro faq(items, eyebrow="Questions", heading="The ones we hear most.", cream=true) %}
+  {%- if items and items.length %}
+  <section class="band {% if cream %}band-cream on-cream{% else %}band-2{% endif %}">
+    <div class="shell hang">
+      <div>
+        <div class="{% if cream %}flank{% else %}eyebrow{% endif %}">{% if cream %}<span>{{ eyebrow }}</span>{% else %}{{ eyebrow }}{% endif %}</div>
+        <h2 class="d">{{ heading }}</h2>
+      </div>
+      <div>
+        {%- for qa in items %}
+        <details class="qa"{% if loop.first %} open{% endif %}>
+          <summary>{{ qa.question }}</summary>
+          <div class="a">
+            {%- for para in qa.answer | paragraphs %}
+            <p>{{ para }}</p>
+            {%- endfor %}
+          </div>
+        </details>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  {%- endif %}
+{% endmacro %}
+
+
+{# ---------- reviews ----------
+   The whole section disappears when there are none. An empty reviews
+   band looks worse than no reviews band, and NOTHING here is invented —
+   every quote comes from the CMS, in the customer's own words. #}
+{% macro reviews(data) %}
+  {%- if data.items and data.items.length %}
+  <section class="band">
+    <div class="shell">
+      <div class="hang">
+        <div>
+          <div class="eyebrow">What people say</div>
+          <h2 class="d">{{ data.heading }}</h2>
+        </div>
+        <div><p class="lede soft">{{ data.lede }}</p></div>
+      </div>
+      <div class="revs">
+        {%- for r in data.items %}
+        <div class="rev">
+          <span class="qm">&ldquo;</span>
+          <p>{{ r.quote }}</p>
+          <div class="who">{{ r.name }}{% if r.town %} &mdash; {{ r.town }}{% endif %}</div>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  {%- endif %}
+{% endmacro %}
+
+
+{# ---------- before / after gallery ----------
+   Falls back to placeholders when no projects are loaded yet, so the
+   page still shows its shape on day one. #}
+{% macro gallery(items, empty=3) %}
+  <div class="gal">
+    {%- if items and items.length %}
+      {%- for p in items %}
+      <figure style="margin:0">
+        <div class="pair">
+          <div class="ph ph-sq{% if p.before %} has-photo{% endif %}">
+            {%- if p.before %}<img src="{{ p.before }}" alt="{{ p.title }} before" loading="lazy" decoding="async">
+            {%- else %}<span>Before</span>{% endif %}
+          </div>
+          <div class="ph ph-sq{% if p.after %} has-photo{% endif %}">
+            {%- if p.after %}<img src="{{ p.after }}" alt="{{ p.title }} after" loading="lazy" decoding="async">
+            {%- else %}<span>After</span>{% endif %}
+          </div>
+        </div>
+        <figcaption class="gcap">{{ p.title }}{% if p.town %} &mdash; {{ p.town }}{% endif %}</figcaption>
+      </figure>
+      {%- endfor %}
+    {%- else %}
+      {%- for i in range(0, empty) %}
+      <figure style="margin:0">
+        <div class="pair">
+          <div class="ph ph-sq"><span>Before</span></div>
+          <div class="ph ph-sq"><span>After</span></div>
+        </div>
+        <figcaption class="gcap">Add a project in the CMS to fill this</figcaption>
+      </figure>
+      {%- endfor %}
+    {%- endif %}
+  </div>
+{% endmacro %}
+
+
+{# ---------- closing call to action ---------- #}
+{% macro finale(site, heading, lede) %}
+  <section class="band band-2 finale">
+    <div class="shell">
+      <div class="flank"><span>Free estimate</span></div>
+      <h2 class="d">{{ heading }}</h2>
+      <p class="lede soft">{{ lede }}</p>
+      <div class="row">
+        <a class="btn" href="/contact/">Get a free estimate</a>
+        <span class="soft">or just call &mdash;</span>
+        <a class="tel" href="tel:{{ site.phoneLink }}">{{ site.phone }}</a>
+      </div>
+    </div>
+  </section>
+{% endmacro %}
+
+
+{# ---------- numbered steps ---------- #}
+{% macro steps(items) %}
+  <div class="steps">
+    {%- for s in items %}
+    <div class="step">
+      <span class="n">{{ loop.index | pad }}</span><div class="rule"></div>
+      <h3>{{ s.title }}</h3>
+      <p>{{ s.body }}</p>
+    </div>
+    {%- endfor %}
+  </div>
+{% endmacro %}

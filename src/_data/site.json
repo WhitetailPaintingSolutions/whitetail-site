@@ -1,0 +1,18 @@
+{
+  "name": "Whitetail Painting Solutions",
+  "phone": "717-582-1146",
+  "phoneLink": "+17175821146",
+  "email": "",
+  "facebook": "",
+  "instagram": "",
+  "areaShort": "Juniata County, Pennsylvania",
+  "areaLong": "Juniata County and Central Pennsylvania",
+  "insuredLine": "We carry insurance and we will send you the certificate before we start if you would like to see it. You should ask any painter for that, not just us.",
+  "areaTowns": [
+    "Mifflintown, Mifflin, and Port Royal",
+    "Thompsontown, McAlisterville, and Richfield",
+    "Lewistown, Burnham, and the Kishacoquillas Valley",
+    "Newport, Millerstown, and Liverpool"
+  ],
+  "formEndpoint": ""
+}

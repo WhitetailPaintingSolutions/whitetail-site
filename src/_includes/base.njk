@@ -1,0 +1,160 @@
+{# ============================================================
+   The shell every page sits inside: head, header, footer.
+
+   It exists once. A link fixed here is fixed on all nine pages, which
+   is the whole reason the site is built rather than hand written.
+   ============================================================ #}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="theme-color" content="#0B0B0C">
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+
+{# The endpoint the estimate form posts to. Set it in the CMS under
+   Settings and every page picks it up. Empty means the form validates
+   and shows the thank you but delivers nothing — see assets/site.js. #}
+<script>window.WT_ENDPOINT = {{ site.formEndpoint | default("") | dump | safe }};</script>
+</head>
+<body>
+
+{% set nav = [
+  { url: "/interior/", label: "Interior" },
+  { url: "/exterior/", label: "Exterior" },
+  { url: "/cabinets/", label: "Cabinets" },
+  { url: "/decks/",    label: "Decks &amp; Fences" }
+] %}
+
+<header class="site">
+  <div class="shell hrow">
+    <a class="mark" href="/" aria-label="{{ site.name }}, home">
+      <img src="/assets/wordmark.png" alt="{{ site.name }}" width="880" height="169">
+    </a>
+
+    <nav class="main">
+      <div class="drop">
+        <button type="button" aria-expanded="false"
+          {%- if page.url in ["/interior/","/exterior/","/cabinets/","/decks/"] %} aria-current="true"{% endif %}>Services</button>
+        <div class="drop-panel">
+          {%- for n in nav %}
+          <a href="{{ n.url }}">{{ n.label | safe }}</a>
+          {%- endfor %}
+        </div>
+      </div>
+      <a href="/work/"{% if page.url == "/work/" %} aria-current="page"{% endif %}>Our Work</a>
+      <a href="/notes/"{% if "/notes/" in page.url %} aria-current="page"{% endif %}>Notes</a>
+      <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
+    </nav>
+
+    <div class="hcta">
+      <a class="tel" href="tel:{{ site.phoneLink }}">{{ site.phone }}</a>
+      <a class="btn" href="/contact/">Free estimate</a>
+    </div>
+
+    <button class="burger" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+{#  The mobile panel sits OUTSIDE the header on purpose.
+
+    header.site has backdrop-filter on it, and backdrop-filter makes an
+    element the containing block for any position:fixed descendant. With
+    the panel inside, its bottom:0 resolved to the bottom of the 78px bar
+    instead of the bottom of the screen, so it opened 66px tall and
+    looked like it had not opened at all.
+
+    Keep it here. Moving it back inside the header breaks it again, and
+    the breakage is silent — the markup looks right.  #}
+<div class="mnav" id="mobileNav">
+  <h4>What we paint</h4>
+  {%- for n in nav %}
+  <a href="{{ n.url }}">{{ n.label | safe }}</a>
+  {%- endfor %}
+  <h4>More</h4>
+  <a href="/work/">Our Work</a>
+  <a href="/notes/">Notes</a>
+  <a href="/about/">About</a>
+  <a href="/contact/">Free Estimate</a>
+  <div class="mfoot">
+    <a class="tel" href="tel:{{ site.phoneLink }}">{{ site.phone }}</a>
+    <a class="btn" href="/contact/">Get a free estimate</a>
+  </div>
+</div>
+
+<main>
+{{ content | safe }}
+</main>
+
+<footer class="site">
+  <div class="shell">
+    <div class="frow">
+      <div>
+        <a class="mark big" href="/" aria-label="{{ site.name }}">
+          <img src="/assets/wordmark.png" alt="{{ site.name }}" width="880" height="169">
+        </a>
+        <p class="soft" style="margin-top:24px;max-width:34ch;font-size:15px">
+          Interior and exterior painting for homes and small businesses across
+          {{ site.areaLong }}.</p>
+      </div>
+
+      <div>
+        <h4>What we paint</h4>
+        <ul>
+          {%- for n in nav %}
+          <li><a href="{{ n.url }}">{{ n.label | safe }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about/">About us</a></li>
+          <li><a href="/work/">Our work</a></li>
+          <li><a href="/notes/">Notes</a></li>
+          <li><a href="/contact/">Free estimate</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:{{ site.phoneLink }}">{{ site.phone }}</a></li>
+          {%- if site.email %}
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          {%- endif %}
+          {# The Facebook link only appears once a real URL is set in the
+             CMS. An empty link is worse than no link. #}
+          {%- if site.facebook %}
+          <li><a href="{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a></li>
+          {%- endif %}
+          {%- if site.instagram %}
+          <li><a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a></li>
+          {%- endif %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="fbot">
+      <span>&copy; <span data-year>2026</span> {{ site.name }}</span>
+      <span>{{ site.areaShort }}</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+---
+layout: base.njk
+permalink: /about/
+title: "About Us — Whitetail Painting Solutions, Juniata County PA"
+description: "Whitetail Painting Solutions is a small painting crew in Juniata County, Pennsylvania. How we work, where we work, and what we hold ourselves to."
+---
+{% from "parts.njk" import phero, reviews as reviewBlock, finale, steps as stepBlocks %}
+{%- set p = pages.about -%}
+{{ phero("About", p.eyebrow, p.heading, p.lede) }}
+
+  <section class="band band-2">
+    <div class="shell split">
+      {% photo p.photo, "The crew", "ph-tall", "Photo — the crew, or the owner on a job site. A real one beats a stock one." %}
+      <div>
+        <div class="eyebrow">Who we are</div>
+        <h2 class="d">{{ p.whoHeading }}</h2>
+        {%- for para in p.whoBody | paragraphs %}
+        <p class="{% if loop.first %}lede {% endif %}soft"{% if loop.first %} style="margin-top:22px"{% endif %}>{{ para }}</p>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-cream on-cream">
+    <div class="shell">
+      <div class="hang">
+        <div>
+          <div class="flank"><span>How we work</span></div>
+          <h2 class="d">Four things we hold ourselves to.</h2>
+        </div>
+        <div>
+          <p class="lede soft">None of this is complicated. It is just the stuff people tell us
+            went wrong the last time somebody painted for them.</p>
+        </div>
+      </div>
+      {{ stepBlocks([
+        { title: "One price, in writing",
+          body: "You get the whole job priced before we start, and it does not move unless you ask for something we did not talk about." },
+        { title: "The same faces",
+          body: "The crew that starts your house finishes it. You are not meeting new people halfway through." },
+        { title: "Your house, not a job site",
+          body: "Floors covered, furniture moved back, site swept before we leave for the day. You should be able to live there while we work." },
+        { title: "Straight answers",
+          body: "If a board is rotten, if a color will not cover in two coats, if the weather is going to push us back — we would rather tell you early than have you find out." }
+      ]) }}
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell hang">
+      <div>
+        <div class="eyebrow">Where we work</div>
+        <h2 class="d">{{ site.areaShort | replace(", ", " and ") }}.</h2>
+      </div>
+      <div>
+        <p class="lede soft">We work in {{ site.areaLong }}, roughly within an hour of home.
+          If you are a little past that, ask anyway — we may already be working near you.</p>
+        <ul class="pts">
+          {%- for t in site.areaTowns %}
+          <li>{{ t }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-2">
+    <div class="shell split-r">
+      <div>
+        <div class="eyebrow">Paperwork</div>
+        <h2 class="d">Insured, and happy to prove it.</h2>
+        <p class="lede soft" style="margin-top:22px">{{ site.insuredLine }}</p>
+        <p style="margin-top:26px"><a class="textlink" href="/contact/">Ask us anything &rarr;</a></p>
+      </div>
+      {% photo p.truckPhoto, "The truck", "ph-wide", "Photo — the truck, or the crew at work" %}
+    </div>
+  </section>
+
+{{ reviewBlock(reviews) }}
+{{ finale(site, "Come see what we do.",
+   "Tell us about your house and we will come look. No charge, and no sales pitch.") }}

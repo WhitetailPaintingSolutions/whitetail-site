@@ -1,0 +1,278 @@
+# ============================================================
+# Sveltia CMS configuration.
+#
+# This describes the editing screens at /admin. Every field below maps
+# to a real file in the repo, so what you edit here is committed to
+# GitHub and Netlify rebuilds the site from it.
+#
+# CHANGE THIS FIRST: the repo line. Until it points at the real
+# repository, nothing will load.
+# ============================================================
+
+backend:
+  name: github
+  repo: WhitetailPaintingSolutions/whitetail-site
+  branch: main
+
+# Where uploaded photos land in the repo, and the URL they are served
+# from once the site builds. These two must stay in step.
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+# Saves go straight to the branch above. Set to true if you ever want a
+# draft/review step before things go live.
+publish_mode: simple
+
+collections:
+
+  # ---------------------------------------------------------- settings
+  - name: settings
+    label: Settings
+    files:
+      - name: site
+        label: Business details
+        file: src/_data/site.json
+        icon: settings
+        description: Phone number, links, and service area. These appear on every page.
+        fields:
+          - { name: name, label: Business name, widget: string }
+          - name: phone
+            label: Phone number (as people read it)
+            widget: string
+            hint: Change this and phoneLink together — they are the same number in two forms.
+          - name: phoneLink
+            label: Phone number (for the tap-to-call link)
+            widget: string
+            pattern: ['^\+1[0-9]{10}$', 'Needs the country code and no punctuation, like +17175821146']
+          - { name: email, label: Email address, widget: string, required: false,
+              hint: Leave empty to hide it from the footer. }
+          - { name: facebook, label: Facebook page URL, widget: string, required: false,
+              hint: Paste the full address. Leave empty and the link disappears rather than going nowhere. }
+          - { name: instagram, label: Instagram profile URL, widget: string, required: false,
+              hint: Paste the full address. Leave empty and the link disappears rather than going nowhere. }
+          - { name: areaShort, label: Service area (short), widget: string,
+              hint: Shown in the footer. For example — Juniata County, Pennsylvania }
+          - { name: areaLong, label: Service area (long), widget: string,
+              hint: Used mid-sentence. For example — Juniata County and Central Pennsylvania }
+          - name: areaTowns
+            label: Towns you cover
+            widget: list
+            field: { name: town, label: Town or group of towns, widget: string }
+            hint: Shown on the About page. Only list places you would actually drive to.
+          - { name: insuredLine, label: Insurance wording, widget: text,
+              hint: This is a factual claim about the business. Make sure it is true. }
+          - name: formEndpoint
+            label: Estimate form destination
+            widget: string
+            required: false
+            hint: >
+              Leave empty and the form shows the thank-you but delivers nothing.
+              Paste the URL that should receive estimate requests to switch it on.
+
+  # ------------------------------------------------------------- pages
+  - name: pages
+    label: Pages
+    files:
+
+      - name: home
+        label: Home page
+        file: src/_data/pages/home.json
+        icon: home
+        fields:
+          - { name: heroEyebrow, label: Small line above the headline, widget: string }
+          - { name: heroHeading, label: Headline, widget: string }
+          - { name: heroLede, label: Opening paragraph, widget: text }
+          - { name: heroPhoto, label: Main photo, widget: image, required: false,
+              hint: The biggest photo on the site. A wide shot of a finished room, in daylight, with nothing on the floor. }
+          - { name: servicesHeading, label: Services heading, widget: string }
+          - { name: servicesLede, label: Services paragraph, widget: text }
+          - { name: aboutHeading, label: About heading, widget: string }
+          - { name: aboutLine, label: About opening line, widget: text }
+          - { name: aboutBody, label: About paragraph, widget: text }
+          - { name: aboutPhoto, label: About photo, widget: image, required: false,
+              hint: The crew, or the owner on a job site. A real one beats a stock one. }
+          - name: aboutPoints
+            label: About bullet points
+            widget: list
+            field: { name: point, label: Point, widget: string }
+          - name: faq
+            label: Questions
+            widget: list
+            summary: '{{fields.question}}'
+            fields:
+              - { name: question, label: Question, widget: string }
+              - { name: answer, label: Answer, widget: text,
+                  hint: Leave a blank line to start a new paragraph. }
+
+      - name: interior
+        label: Interior page
+        file: src/_data/pages/interior.json
+        fields: &servicefields
+          - { name: category, label: Short name, widget: string,
+              hint: Used on the service cards and to file photos under the right heading. Changing it will unlink existing projects. }
+          - { name: eyebrow, label: Small line above the headline, widget: string }
+          - { name: heading, label: Headline, widget: string }
+          - { name: lede, label: Opening paragraph, widget: text }
+          - { name: photo, label: Page photo, widget: image, required: false }
+          - { name: photoHint, label: What photo belongs here, widget: string,
+              hint: Shown in the empty placeholder until a photo is added. }
+          - { name: includesHeading, label: "What's included heading", widget: string }
+          - name: includes
+            label: What's included
+            widget: list
+            field: { name: item, label: Item, widget: string }
+          - { name: stepsLede, label: Paragraph above the steps, widget: text }
+          - name: steps
+            label: How we do it
+            widget: list
+            summary: '{{fields.title}}'
+            fields:
+              - { name: title, label: Step name, widget: string }
+              - { name: body, label: What happens, widget: text }
+          - { name: galleryHeading, label: Photo section heading, widget: string }
+          - name: faq
+            label: Questions
+            widget: list
+            summary: '{{fields.question}}'
+            fields:
+              - { name: question, label: Question, widget: string }
+              - { name: answer, label: Answer, widget: text,
+                  hint: Leave a blank line to start a new paragraph. }
+
+      - name: exterior
+        label: Exterior page
+        file: src/_data/pages/exterior.json
+        fields: *servicefields
+
+      - name: cabinets
+        label: Cabinets page
+        file: src/_data/pages/cabinets.json
+        fields: *servicefields
+
+      - name: decks
+        label: Decks and fences page
+        file: src/_data/pages/decks.json
+        fields: *servicefields
+
+      - name: work
+        label: Our Work page
+        file: src/_data/pages/work.json
+        fields:
+          - { name: eyebrow, label: Small line above the headline, widget: string }
+          - { name: heading, label: Headline, widget: string }
+          - { name: lede, label: Opening paragraph, widget: text }
+
+      - name: about
+        label: About page
+        file: src/_data/pages/about.json
+        fields:
+          - { name: eyebrow, label: Small line above the headline, widget: string }
+          - { name: heading, label: Headline, widget: string }
+          - { name: lede, label: Opening paragraph, widget: text }
+          - { name: photo, label: Crew photo, widget: image, required: false }
+          - { name: whoHeading, label: "Who we are — heading", widget: string }
+          - { name: whoBody, label: "Who we are — text", widget: text,
+              hint: Leave a blank line to start a new paragraph. }
+          - { name: truckPhoto, label: Second photo, widget: image, required: false,
+              hint: The truck, or the crew at work. }
+
+      - name: contact
+        label: Free Estimate page
+        file: src/_data/pages/contact.json
+        fields:
+          - { name: eyebrow, label: Small line above the headline, widget: string }
+          - { name: heading, label: Headline, widget: string }
+          - { name: lede, label: Opening paragraph, widget: text }
+          - { name: helpsHeading, label: "What helps us — heading", widget: string }
+          - name: helps
+            label: What helps us most
+            widget: list
+            field: { name: item, label: Item, widget: string }
+          - name: faq
+            label: Questions
+            widget: list
+            summary: '{{fields.question}}'
+            fields:
+              - { name: question, label: Question, widget: string }
+              - { name: answer, label: Answer, widget: text }
+
+      - name: blog
+        label: Notes page
+        file: src/_data/pages/blog.json
+        fields:
+          - { name: eyebrow, label: Small line above the headline, widget: string }
+          - { name: heading, label: Headline, widget: string }
+          - { name: lede, label: Opening paragraph, widget: text }
+
+  # ----------------------------------------------------------- reviews
+  # REAL REVIEWS ONLY. Paste what the customer actually wrote, word for
+  # word. Leave this empty rather than filling it with anything invented —
+  # the whole section disappears from the site when there are none.
+  - name: reviews
+    label: Reviews
+    files:
+      - name: reviews
+        label: Customer reviews
+        file: src/_data/reviews.json
+        icon: star
+        description: Real reviews only, in the customer's own words. Empty is fine — the section hides itself.
+        fields:
+          - { name: heading, label: Section heading, widget: string }
+          - { name: lede, label: Section paragraph, widget: text }
+          - name: items
+            label: Reviews
+            widget: list
+            summary: '{{fields.name}} — {{fields.town}}'
+            fields:
+              - { name: quote, label: What they wrote, widget: text,
+                  hint: Word for word. Do not tidy it up. }
+              - { name: name, label: First name, widget: string }
+              - { name: town, label: Town, widget: string, required: false }
+
+  # ---------------------------------------------------------- projects
+  - name: projects
+    label: Photos
+    files:
+      - name: projects
+        label: Before and after photos
+        file: src/_data/projects.json
+        icon: photo_library
+        description: Each job you add shows on the Our Work page and on the matching service page.
+        fields:
+          - name: items
+            label: Jobs
+            widget: list
+            summary: '{{fields.title}} — {{fields.town}}'
+            fields:
+              - { name: title, label: Job name, widget: string,
+                  hint: Something short, like "Farmhouse kitchen" or "Porch and railings". }
+              - { name: town, label: Town, widget: string, required: false }
+              - { name: date, label: Date finished, widget: datetime,
+                  date_format: 'YYYY-MM-DD', time_format: false, picker_utc: true }
+              - name: category
+                label: What kind of job
+                widget: select
+                options: ['Interior', 'Exterior', 'Cabinets', 'Decks & Fences']
+              - { name: before, label: Before photo, widget: image, required: false }
+              - { name: after, label: After photo, widget: image, required: false }
+
+  # -------------------------------------------------------------- blog
+  - name: posts
+    label: Notes
+    label_singular: Note
+    folder: src/blog
+    create: true
+    slug: '{{slug}}'
+    icon: article
+    description: Short, plain answers to the questions people ask on job sites.
+    summary: '{{title}}'
+    sortable_fields: ['date', 'title']
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime,
+          date_format: 'YYYY-MM-DD', time_format: false, picker_utc: true }
+      - { name: summary, label: Short summary, widget: text,
+          hint: One or two sentences. This is what shows on the card and in Google. }
+      - { name: cover, label: Cover photo, widget: image, required: false }
+      - { name: draft, label: Draft (not shown on the site), widget: boolean, default: false }
+      - { name: body, label: Post, widget: markdown }

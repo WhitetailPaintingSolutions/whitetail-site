@@ -1,0 +1,447 @@
+/* ============================================================
+   WHITETAIL PAINTING SOLUTIONS — site stylesheet
+
+   ONE file for the whole site. Change a color here and every page
+   changes. That is the entire reason this is not inside each page.
+
+   PALETTE — sampled off the real logo artwork, not guessed:
+     ink      #0B0B0C  the ground. A hair off true black so the black
+                       bands and the logo art do not merge into one
+                       flat shape.
+     cream    #FDFAF3  the wordmark cream. Headings, light bands.
+     gold     #D2A95F  the rules either side of PAINTING SOLUTIONS and
+                       the bar through the WP monogram.
+     gold-ink #7A5A24  the SAME accent, for use ON cream. Plain gold on
+                       cream is about 2:1 contrast — unreadable. Never
+                       swap these two.
+     silver   #B9BDBF  the ring around the monogram. Secondary only.
+
+   TYPE — Playfair Display stands in for the logo's display serif. Not
+   the same face, but the same species: heavy stems, high contrast,
+   bracketed serifs. License the real one and swap it in one place.
+   ============================================================ */
+
+:root{
+  --ink:#0B0B0C;
+  --ink-2:#141416;
+  --ink-3:#1D1D20;
+  --cream:#FDFAF3;
+  --gold:#D2A95F;
+  --gold-ink:#7A5A24;
+  --silver:#B9BDBF;
+  --body:#C2C3C4;
+  --body-dim:#8E9092;
+  --line:rgba(210,169,95,.22);
+  --line-2:rgba(255,255,255,.10);
+  --shell:1180px;
+  --hdr:94px;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+/* Anchors land below the sticky bar instead of underneath it. */
+[id]{scroll-margin-top:calc(var(--hdr) + 18px)}
+
+body{
+  margin:0;background:var(--ink);color:var(--body);
+  font:400 17px/1.75 'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+body.locked{overflow:hidden}          /* while the mobile menu is open */
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;color:var(--cream);font-weight:400}
+
+.shell{max-width:var(--shell);margin-inline:auto;padding-inline:26px}
+
+.d{font-family:'Playfair Display',Georgia,serif;line-height:1.1;letter-spacing:-.005em}
+h1.d{font-size:clamp(38px,5.8vw,64px);font-weight:700}
+h2.d{font-size:clamp(29px,4vw,44px);font-weight:700}
+h3.d{font-size:clamp(20px,2.2vw,24px);font-weight:600}
+
+.eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;
+}
+.lede{font-size:clamp(17px,1.8vw,19.5px);line-height:1.68;margin:0}
+.soft{color:var(--body-dim)}
+.measure{max-width:60ch}
+
+/* The logo's own device — a label between two gold rules — reused as
+   the section label so the page keeps echoing the mark. */
+.flank{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.flank::before,.flank::after{content:'';height:2px;background:var(--gold);flex:0 0 34px}
+.flank span{font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+
+/* ---------------- buttons ---------------- */
+.btn{
+  display:inline-block;padding:16px 32px;border:0;cursor:pointer;
+  background:var(--gold);color:#17120A;
+  font:600 13px/1 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;
+  text-decoration:none;transition:background .18s ease,color .18s ease;white-space:nowrap;
+}
+.btn:hover{background:#E0BC7A}
+.btn-line{background:transparent;color:var(--cream);box-shadow:inset 0 0 0 1px rgba(253,250,243,.38)}
+.btn-line:hover{background:var(--cream);color:var(--ink)}
+.btn-dark{background:var(--ink);color:var(--cream)}
+.btn-dark:hover{background:var(--ink-3)}
+
+.tel{
+  font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;
+  color:var(--cream);text-decoration:none;border-bottom:2px solid var(--gold);
+  padding-bottom:2px;white-space:nowrap;
+}
+.tel:hover{color:var(--gold)}
+.on-cream .tel{color:var(--ink)}
+
+.textlink{color:var(--gold);text-decoration:none;font-weight:500;border-bottom:1px solid transparent}
+.textlink:hover{border-bottom-color:var(--gold)}
+.on-cream .textlink{color:var(--gold-ink)}
+.on-cream .textlink:hover{border-bottom-color:var(--gold-ink)}
+
+/* ---------------- logo ---------------- */
+.mark{display:block;line-height:0;flex:0 0 auto}
+.mark img{width:238px;height:auto}
+.mark.big img{width:330px}
+
+/* ---------------- header ---------------- */
+header.site{
+  position:sticky;top:0;z-index:60;background:rgba(11,11,12,.93);
+  backdrop-filter:saturate(140%) blur(12px);
+  border-bottom:1px solid var(--line-2);
+  padding-top:env(safe-area-inset-top,0px);
+}
+.hrow{display:flex;align-items:center;gap:28px;height:var(--hdr)}
+
+nav.main{display:flex;gap:26px;margin-left:auto;align-items:center}
+/* nowrap matters: the links are uppercase and letterspaced, so two-word
+   labels break across two lines and push the bar out of shape. */
+nav.main > a,.drop > button{
+  font:500 12.5px/1 'Inter',sans-serif;letter-spacing:.09em;text-transform:uppercase;
+  text-decoration:none;color:var(--body);padding:10px 0;white-space:nowrap;
+  border:0;background:none;cursor:pointer;
+  border-bottom:2px solid transparent;transition:.16s;
+}
+nav.main > a:hover,.drop > button:hover,nav.main > a[aria-current]{
+  color:var(--cream);border-bottom-color:var(--gold);
+}
+
+/* Services dropdown. Hover on a mouse, click/Enter on a keyboard —
+   both drive the same [data-open] attribute so there is one state. */
+.drop{position:relative}
+.drop > button::after{content:'  ▾';color:var(--gold)}
+.drop-panel{
+  position:absolute;top:100%;left:-18px;min-width:218px;
+  background:var(--ink-2);border:1px solid var(--line);
+  padding:10px 0;opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .16s ease,transform .16s ease,visibility .16s;
+}
+.drop:hover .drop-panel,.drop[data-open] .drop-panel{opacity:1;visibility:visible;transform:none}
+.drop-panel a{
+  display:block;padding:11px 22px;text-decoration:none;color:var(--body);
+  font-size:14.5px;transition:.14s;
+}
+.drop-panel a:hover{background:var(--ink-3);color:var(--gold)}
+
+.hcta{display:flex;align-items:center;gap:20px}
+
+/* Hamburger — hidden until the desktop nav is dropped. */
+.burger{
+  display:none;width:44px;height:44px;margin-left:auto;padding:0;
+  background:none;border:1px solid var(--line-2);cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+}
+.burger span{display:block;width:19px;height:2px;background:var(--cream);transition:.2s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile panel. Sits under the bar and fills the rest of the screen,
+   so a long list scrolls instead of running off the bottom. */
+.mnav{
+  position:fixed;left:0;right:0;top:calc(var(--hdr) + env(safe-area-inset-top,0px));
+  bottom:0;background:var(--ink);z-index:55;
+  padding:26px 26px calc(40px + env(safe-area-inset-bottom,0px));
+  overflow-y:auto;display:none;
+}
+.mnav[data-open]{display:block}
+.mnav h4{
+  font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin:26px 0 12px;
+}
+.mnav a{
+  display:block;padding:15px 0;text-decoration:none;color:var(--cream);
+  font-family:'Playfair Display',serif;font-size:23px;font-weight:600;
+  border-bottom:1px solid var(--line-2);
+}
+.mnav a:hover{color:var(--gold)}
+.mnav .mfoot{margin-top:32px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+
+/* ---------------- page hero (inner pages) ---------------- */
+.phero{
+  padding:clamp(52px,7vw,88px) 0 clamp(44px,6vw,72px);
+  background:radial-gradient(900px 520px at 12% -10%, rgba(210,169,95,.10), transparent 62%),var(--ink);
+  border-bottom:1px solid var(--line-2);
+}
+.phero .lede{margin-top:22px;max-width:56ch}
+.crumb{font-size:12.5px;letter-spacing:.06em;color:var(--body-dim);margin-bottom:22px}
+.crumb a{text-decoration:none;color:var(--body-dim)}
+.crumb a:hover{color:var(--gold)}
+
+/* ---------------- home hero ---------------- */
+#hero{
+  padding:clamp(60px,8vw,110px) 0 clamp(56px,7vw,96px);
+  background:radial-gradient(900px 520px at 12% -8%, rgba(210,169,95,.10), transparent 62%),var(--ink);
+}
+.hero-in{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(36px,5vw,70px);align-items:center}
+.hero-copy .lede{margin-top:26px;max-width:46ch;color:var(--body)}
+.hero-acts{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:38px}
+.hero-note{margin-top:24px;font-size:14px;color:var(--body-dim)}
+
+/* ---------------- photo placeholders ----------------
+   Deliberately obvious. A hatched box that names what belongs in it
+   never ships by accident; a stock photo does. */
+.ph{
+  position:relative;border:1px solid var(--line-2);
+  background:repeating-linear-gradient(45deg,#161618 0 13px,#111113 13px 26px);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;
+}
+.ph span{
+  font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:#6E7072;max-width:26ch;line-height:2.1;
+}
+.on-cream .ph{
+  border-color:rgba(11,11,12,.16);
+  background:repeating-linear-gradient(45deg,#EAE3D6 0 13px,#E3DBCC 13px 26px);
+}
+.on-cream .ph span{color:#8C8375}
+.ph-tall{aspect-ratio:4/5}
+.ph-sq{aspect-ratio:1/1}
+.ph-wide{aspect-ratio:3/2}
+
+/* ---------------- bands ---------------- */
+.band{padding:clamp(62px,8vw,106px) 0}
+.band-tight{padding:clamp(48px,6vw,76px) 0}
+.band-2{background:var(--ink-2)}
+.band-cream{background:var(--cream);color:#50565C}
+.band-cream h2,.band-cream h3{color:var(--ink)}
+.band-cream .eyebrow,.band-cream .flank span{color:var(--gold-ink)}
+.band-cream .flank::before,.band-cream .flank::after{background:var(--gold-ink)}
+.band-cream .soft{color:#6E747A}
+
+.hang{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,66px);align-items:start}
+
+/* ---------------- cards ---------------- */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:54px}
+.svc-3{grid-template-columns:repeat(3,1fr)}
+.card{
+  background:var(--ink);border:1px solid var(--line-2);text-decoration:none;
+  display:flex;flex-direction:column;transition:border-color .2s ease,transform .2s ease;
+}
+.card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.card .ph{border:0;border-bottom:1px solid var(--line-2)}
+.card-body{padding:26px 24px 30px}
+.card h3{margin-bottom:11px}
+.card p{margin:0;font-size:15.5px;line-height:1.68;color:var(--body-dim)}
+.card .more{
+  margin-top:16px;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);
+}
+.on-cream .card{background:#fff;border-color:rgba(11,11,12,.12)}
+.on-cream .card p{color:#6E747A}
+.on-cream .card .more{color:var(--gold-ink)}
+
+/* ---------------- numbered steps ---------------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:56px}
+.steps-3{grid-template-columns:repeat(3,1fr)}
+.step .n{
+  font-family:'Playfair Display',Georgia,serif;font-size:44px;font-weight:700;
+  color:var(--gold);line-height:1;display:block;margin-bottom:6px;
+}
+.step .rule{height:2px;width:34px;background:var(--gold);margin-bottom:16px}
+.step h3{font-size:18px;margin-bottom:9px;font-family:'Inter',sans-serif;font-weight:700;color:var(--cream)}
+.step p{margin:0;font-size:15.5px;line-height:1.68;color:var(--body-dim)}
+.on-cream .step .n,.on-cream .step .rule{color:var(--gold-ink);background:var(--gold-ink)}
+.on-cream .step .n{background:none}
+.on-cream .step h3{color:var(--ink)}
+.on-cream .step p{color:#6E747A}
+
+/* ---------------- gallery ---------------- */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+.gal-2{grid-template-columns:repeat(2,1fr)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.gcap{margin-top:13px;font-size:13px;letter-spacing:.06em;color:var(--body-dim)}
+
+/* ---------------- reviews ----------------
+   NOTHING INVENTED. Each card is an empty slot. Paste in real reviews,
+   word for word, with a first name and a town. Delete any card that
+   cannot be filled — three empty boxes look worse than one honest
+   quote. */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+.rev{background:var(--ink-2);border:1px solid var(--line-2);padding:34px 30px}
+.rev .qm{
+  font-family:'Playfair Display',serif;font-size:56px;font-weight:700;color:var(--gold);
+  line-height:.62;display:block;margin-bottom:14px;
+}
+.rev p{margin:0 0 20px;font-size:16px;line-height:1.72;color:#7C7E80;font-style:italic}
+.rev .who{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6E7072}
+
+/* ---------------- lists ---------------- */
+.pts{list-style:none;margin:30px 0 0;padding:0}
+.pts li{position:relative;padding-left:30px;margin-bottom:13px;font-size:16px}
+.pts li::before{content:'';position:absolute;left:0;top:12px;width:16px;height:2px;background:var(--gold)}
+.on-cream .pts li::before{background:var(--gold-ink)}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,54px)}
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,68px);align-items:center}
+.split-r{grid-template-columns:1.1fr .9fr}
+.split p+p{margin-top:16px}
+
+/* ---------------- faq ---------------- */
+.qa{border-bottom:1px solid var(--line-2)}
+.on-cream .qa{border-bottom-color:rgba(11,11,12,.12)}
+.qa summary{
+  cursor:pointer;list-style:none;padding:24px 44px 24px 0;position:relative;
+  font-size:17.5px;font-weight:600;color:var(--cream);
+}
+.on-cream .qa summary{color:var(--ink)}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{
+  content:'+';position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  font-family:'Playfair Display',serif;font-size:26px;color:var(--gold);font-weight:500;
+}
+.on-cream .qa summary::after{color:var(--gold-ink)}
+.qa[open] summary::after{content:'–'}
+.qa .a{padding:0 44px 26px 0}
+.qa .a p{margin:0;font-size:16px;line-height:1.75}
+.qa .a p+p{margin-top:12px}
+
+/* ---------------- estimate form ---------------- */
+.formwrap{background:var(--ink-2);border:1px solid var(--line);padding:clamp(28px,4vw,46px)}
+.on-cream .formwrap{background:#fff;border-color:rgba(11,11,12,.14)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f{display:flex;flex-direction:column}
+.f.wide{grid-column:1/-1}
+.f label{
+  font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:9px;
+}
+.on-cream .f label{color:var(--gold-ink)}
+.f input,.f select,.f textarea{
+  font:400 16px/1.5 'Inter',sans-serif;color:var(--cream);
+  background:var(--ink);border:1px solid var(--line-2);
+  padding:14px 15px;width:100%;transition:border-color .16s ease;
+}
+.on-cream .f input,.on-cream .f select,.on-cream .f textarea{
+  color:var(--ink);background:#FBF7F0;border-color:rgba(11,11,12,.16);
+}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--gold)}
+.f textarea{resize:vertical;min-height:112px}
+.f select option{background:var(--ink);color:var(--cream)}
+.on-cream .f select option{background:#fff;color:var(--ink)}
+.fnote{margin:20px 0 0;font-size:13.5px;color:var(--body-dim);line-height:1.6}
+.fmsg{margin:20px 0 0;font-size:15.5px;display:none;line-height:1.6}
+.fmsg.show{display:block}
+.fmsg.ok{color:var(--gold)}
+.on-cream .fmsg.ok{color:#3E6B4F}
+.fmsg.bad{color:#E08C7A}
+.on-cream .fmsg.bad{color:#9B4A3A}
+
+/* ---------------- closing call to action ---------------- */
+.finale{text-align:center}
+.finale .flank{justify-content:center}
+.finale .lede{margin:18px auto 0;max-width:54ch}
+.finale .row{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:36px}
+
+/* ---------------- footer ---------------- */
+footer.site{
+  background:var(--ink);border-top:1px solid var(--line);
+  padding:74px 0 42px;padding-bottom:calc(42px + env(safe-area-inset-bottom,0px));
+}
+.frow{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:40px;align-items:start}
+footer.site h4{
+  font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 18px;
+}
+footer.site a{color:var(--body);text-decoration:none;font-size:15px}
+footer.site a:hover{color:var(--cream)}
+footer.site ul{margin:0;padding:0}
+footer.site li{list-style:none;margin-bottom:10px}
+.fbot{
+  margin-top:56px;padding-top:28px;border-top:1px solid var(--line-2);
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font-size:12.5px;letter-spacing:.04em;color:#6E7072;
+}
+
+/* ---------------- responsive ----------------
+   Verified from 320px to 1680px: no horizontal scroll, no wrapped nav. */
+@media(max-width:1100px){
+  .svc{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .gal,.revs{grid-template-columns:repeat(2,1fr)}
+  /* Logo, nav, the number and the button stop fitting the bar here.
+     The number goes first — it is in the hero directly below. */
+  .hcta .tel{display:none}
+  .frow{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  :root{--hdr:78px}
+  nav.main,.hcta{display:none}
+  .burger{display:flex}
+  .hero-in,.hang,.split,.split-r,.about{grid-template-columns:1fr;gap:34px}
+  .hero-in .ph{order:-1}
+  .two-col{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  body{font-size:16px}
+  .svc,.svc-3,.steps,.steps-3,.gal,.gal-2,.revs,.fgrid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .hero-acts{gap:18px}
+  .mark img{width:178px}
+  .mark.big img{width:250px}
+}
+@media(max-width:360px){
+  .shell{padding-inline:18px}
+  .mark img{width:150px}
+  .mnav a{font-size:20px}
+}
+
+/* Respect a reduced-motion preference — the smooth scroll and the
+   card lift are decoration, not information. */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+  .card:hover{transform:none}
+}
+
+/* ---------------- blog post body ----------------
+   Markdown written in the CMS lands inside .prose, so this is the only
+   place the post typography is set. A narrow measure on purpose — long
+   lines are the main reason people stop reading on a phone. */
+.prose{max-width:68ch}
+.prose p,.prose ul,.prose ol{font-size:17.5px;line-height:1.78;color:var(--body)}
+.prose p+p{margin-top:20px}
+.prose h2{
+  font-family:'Playfair Display',Georgia,serif;font-size:clamp(25px,3vw,33px);
+  font-weight:700;color:var(--cream);margin:44px 0 14px;line-height:1.16;
+}
+.prose h3{
+  font-size:19px;font-weight:700;color:var(--cream);margin:32px 0 10px;
+}
+.prose ul,.prose ol{padding-left:22px;margin:18px 0}
+.prose li{margin-bottom:9px}
+.prose li::marker{color:var(--gold)}
+.prose a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(210,169,95,.4)}
+.prose a:hover{border-bottom-color:var(--gold)}
+.prose strong{color:var(--cream);font-weight:600}
+.prose blockquote{
+  margin:28px 0;padding:4px 0 4px 24px;border-left:2px solid var(--gold);
+  color:var(--body-dim);font-style:italic;
+}
+.prose img{margin:28px 0;border:1px solid var(--line-2)}
+.prose hr{border:0;border-top:1px solid var(--line-2);margin:40px 0}
+
+/* A photo slot that has a real image in it drops the hatching and the
+   dashed look — the image fills the frame instead. */
+.ph.has-photo{padding:0;background:var(--ink-2);overflow:hidden}
+.ph.has-photo img{width:100%;height:100%;object-fit:cover}

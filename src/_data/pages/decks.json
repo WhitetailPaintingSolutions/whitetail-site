@@ -1,0 +1,56 @@
+{
+  "eyebrow": "Decks and fences",
+  "heading": "Back to bare, then sealed up.",
+  "lede": "Stain or paint, after a proper wash and a dry spell. We will tell you honestly if a board should be replaced first.",
+  "photo": "",
+  "includesHeading": "Decks, porches, and fence lines.",
+  "includes": [
+    "Decks, porch floors, and steps",
+    "Railings, spindles, and posts",
+    "Fence lines, gates, and pergolas",
+    "Washing off dirt, algae, and old loose finish",
+    "Sanding rough or splintered boards",
+    "Setting popped nails and screws so nothing catches a foot",
+    "Stain, solid color, or paint, depending on what the wood wants"
+  ],
+  "faq": [
+    {
+      "question": "Should I stain it or paint it?",
+      "answer": "Stain soaks in and wears thin over time, so when it needs redoing you wash it and put more on. Paint sits on top, looks solid and lasts well on railings and fences, but when it does fail it peels and has to be scraped.\n\nOn a deck floor that takes sun and boots, stain is usually the easier thing to live with. We will look at your wood and tell you what we would do."
+    },
+    {
+      "question": "How long after washing can you stain?",
+      "answer": "Normally two to three dry days, longer if it has been damp or the deck sits in shade. We would rather come back later than seal water into the boards, so this can move the schedule."
+    },
+    {
+      "question": "What if some boards are rotten?",
+      "answer": "We will show you. We do not replace boards ourselves, but we would rather you know before we finish than find out next spring. Some people have a carpenter swap a few boards first and then we come in."
+    },
+    {
+      "question": "How often does a deck need doing again?",
+      "answer": "It depends on sun, traffic, and what is on there now. A deck that bakes in the afternoon goes longer between coats than one under trees that stays damp. When we finish, we will tell you roughly what to watch for."
+    }
+  ],
+  "steps": [
+    {
+      "title": "Wash it back",
+      "body": "Dirt, algae, and failing old finish come off. On a deck this makes more visible difference than anything else we do."
+    },
+    {
+      "title": "Let it dry",
+      "body": "Two or three dry days, sometimes more. This is the step people skip, and it is why finishes fail — sealing damp wood traps the water underneath."
+    },
+    {
+      "title": "Sand and fix",
+      "body": "Rough boards get sanded, splinters knocked back, popped nails set. We will point out any board that is soft or rotten rather than sealing over it."
+    },
+    {
+      "title": "Stain or paint",
+      "body": "Worked in with the grain, along full boards so there are no lap marks halfway down. Then we keep you off it until it is ready."
+    }
+  ],
+  "galleryHeading": "Decks we have finished.",
+  "stepsLede": "Most deck finishes fail for one of two reasons: the wood was not clean, or it was not dry. Both happen before the stain comes out of the can.",
+  "photoHint": "a finished deck",
+  "category": "Decks & Fences"
+}

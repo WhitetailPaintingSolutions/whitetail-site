@@ -1,0 +1,47 @@
+{% from "parts.njk" import phero, faq, finale, gallery, steps as stepBlocks %}
+{%- set p = pages[key] -%}
+{{ phero(p.eyebrow, p.eyebrow, p.heading, p.lede) }}
+
+  <section class="band band-2">
+    <div class="shell split">
+      <div>
+        <div class="eyebrow">What is included</div>
+        <h2 class="d">{{ p.includesHeading }}</h2>
+        <ul class="pts">
+          {%- for x in p.includes %}
+          <li>{{ x }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {% photo p.photo, p.photoHint, "ph-tall", "Photo — " + p.photoHint %}
+    </div>
+  </section>
+
+  <section class="band band-cream on-cream">
+    <div class="shell">
+      <div class="hang">
+        <div>
+          <div class="flank"><span>How we do it</span></div>
+          <h2 class="d">The order matters.</h2>
+        </div>
+        <div><p class="lede soft">{{ p.stepsLede }}</p></div>
+      </div>
+      {{ stepBlocks(p.steps) }}
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="hang">
+        <div>
+          <div class="eyebrow">Our work</div>
+          <h2 class="d">{{ p.galleryHeading }}</h2>
+        </div>
+        <div><p class="lede soft">These are our own jobs, photographed the day we packed up.</p></div>
+      </div>
+      {{ gallery(projects.items | byCategory(p.category) | newestFirst | limit(3)) }}
+    </div>
+  </section>
+
+{{ faq(p.faq, "Questions", "About this kind of job.", false) }}
+{{ finale(site, "Want a price on this?", "Send us the room or the room count and we will come look. No charge, and no sales pitch.") }}

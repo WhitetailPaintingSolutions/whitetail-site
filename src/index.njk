@@ -1,0 +1,145 @@
+---
+layout: base.njk
+permalink: /
+title: "Whitetail Painting Solutions — Interior & Exterior Painting in Juniata County, PA"
+description: "Interior and exterior painting in Juniata County and Central Pennsylvania. Written prices before we start, covered floors, and a clean site at the end of every day."
+---
+{% from "parts.njk" import faq, reviews as reviewBlock, finale, gallery, steps as stepBlocks %}
+{%- set p = pages.home -%}
+
+  <section id="hero">
+    <div class="shell hero-in">
+      <div class="hero-copy">
+        <div class="flank"><span>{{ p.heroEyebrow }}</span></div>
+        <h1 class="d">{{ p.heroHeading }}</h1>
+        <p class="lede">{{ p.heroLede }}</p>
+        <div class="hero-acts">
+          <a class="btn" href="/contact/">Get a free estimate</a>
+          <a class="tel" href="tel:{{ site.phoneLink }}">{{ site.phone }}</a>
+        </div>
+        <p class="hero-note">Interior &middot; Exterior &middot; Cabinets &middot; Decks &amp; fences</p>
+      </div>
+      {% photo p.heroPhoto, "A finished room", "ph-tall", "Photo — your best finished room. Wide shot, daylight, nothing on the floor." %}
+    </div>
+  </section>
+
+  <section class="band band-2" id="services">
+    <div class="shell">
+      <div class="hang">
+        <div>
+          <div class="eyebrow">What we paint</div>
+          <h2 class="d">{{ p.servicesHeading }}</h2>
+        </div>
+        <div><p class="lede soft">{{ p.servicesLede }}</p></div>
+      </div>
+      <div class="svc">
+        {%- for k in ["interior","exterior","cabinets","decks"] %}
+        {%- set s = pages[k] %}
+        <a class="card" href="/{{ k }}/">
+          {% photo s.photo, s.category, "ph-sq", "Photo — " + s.photoHint %}
+          <div class="card-body">
+            <h3 class="d">{{ s.category }}</h3>
+            <p>{{ s.lede }}</p>
+            <div class="more">See more &rarr;</div>
+          </div>
+        </a>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="hang">
+        <div>
+          <div class="eyebrow">Our work</div>
+          <h2 class="d">Before, and after.</h2>
+        </div>
+        <div>
+          <p class="lede soft">The fastest way to know whether we are any good is to look at
+            what we have finished. These are our own jobs, photographed the day we packed up.</p>
+        </div>
+      </div>
+      {{ gallery(projects.items | newestFirst | limit(3)) }}
+      <p style="margin-top:36px"><a class="textlink" href="/work/">See more of our work &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="band band-cream on-cream" id="process">
+    <div class="shell">
+      <div class="hang">
+        <div>
+          <div class="flank"><span>How it goes</span></div>
+          <h2 class="d">You will know what is happening, the whole way through.</h2>
+        </div>
+        <div>
+          <p class="lede soft">Painting goes wrong in the same few ways: a price that moves,
+            a crew that does not show, and a mess left behind. Here is how we try to stay
+            clear of all three.</p>
+        </div>
+      </div>
+      {{ stepBlocks([
+        { title: "Tell us about it",
+          body: "Fill in the form or call. Photos help a lot. This takes about two minutes." },
+        { title: "We come look",
+          body: "We measure, check the surfaces, and answer your questions. No charge, and no sales pitch." },
+        { title: "You get a written price",
+          body: "It lists the rooms, the prep, the paint, and the cost. You keep it. Nothing starts until you say so." },
+        { title: "We paint",
+          body: "We protect your floors and furniture, work through the list, and tidy up before we go home each day." }
+      ]) }}
+      <p style="margin-top:48px"><a class="btn btn-dark" href="/contact/">Start with step one</a></p>
+    </div>
+  </section>
+
+  <section class="band band-2">
+    <div class="shell split">
+      {% photo p.aboutPhoto, "The crew", "ph-tall", "Photo — the crew, or the owner on a job site. A real one beats a stock one." %}
+      <div>
+        <div class="eyebrow">About us</div>
+        <h2 class="d">{{ p.aboutHeading }}</h2>
+        <p class="lede" style="margin-top:24px">{{ p.aboutLine }}</p>
+        <p class="soft" style="margin-top:18px">{{ p.aboutBody }}</p>
+        <ul class="pts">
+          {%- for x in p.aboutPoints %}
+          <li>{{ x }}</li>
+          {%- endfor %}
+        </ul>
+        <p style="margin-top:28px"><a class="textlink" href="/about/">More about us &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+{{ reviewBlock(reviews) }}
+
+{%- if collections.posts.length %}
+  <section class="band">
+    <div class="shell">
+      <div class="hang">
+        <div>
+          <div class="eyebrow">{{ pages.blog.eyebrow }}</div>
+          <h2 class="d">{{ pages.blog.heading }}</h2>
+        </div>
+        <div><p class="lede soft">{{ pages.blog.lede }}</p></div>
+      </div>
+      <div class="svc svc-3">
+        {%- for post in collections.posts | limit(3) %}
+        <a class="card" href="{{ post.url }}">
+          {% photo post.data.cover, post.data.title, "ph-sq", "Photo — add a cover image" %}
+          <div class="card-body">
+            <div class="gcap" style="margin:0 0 10px">{{ post.date | readableDate }}</div>
+            <h3 class="d">{{ post.data.title }}</h3>
+            <p>{{ post.data.summary }}</p>
+            <div class="more">Read it &rarr;</div>
+          </div>
+        </a>
+        {%- endfor %}
+      </div>
+      <p style="margin-top:36px"><a class="textlink" href="/notes/">All notes &rarr;</a></p>
+    </div>
+  </section>
+{%- endif %}
+
+{{ faq(p.faq) }}
+{{ finale(site, "Tell us what you are thinking about.",
+   "It takes about two minutes. We will call you back to set up a time to come look.") }}

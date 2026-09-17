@@ -1,0 +1,32 @@
+---
+layout: base.njk
+---
+{% from "parts.njk" import finale %}
+
+  <section class="phero">
+    <div class="shell">
+      <p class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/notes/">Notes</a></p>
+      <div class="flank"><span><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time></span></div>
+      <h1 class="d">{{ title }}</h1>
+      {%- if summary %}
+      <p class="lede soft measure">{{ summary }}</p>
+      {%- endif %}
+    </div>
+  </section>
+
+  <section class="band band-2">
+    <div class="shell">
+      {%- if cover %}
+      <div class="ph ph-wide has-photo" style="margin-bottom:44px">
+        <img src="{{ cover }}" alt="{{ title }}" loading="lazy" decoding="async">
+      </div>
+      {%- endif %}
+      <article class="prose">
+        {{ content | safe }}
+      </article>
+      <p style="margin-top:48px"><a class="textlink" href="/notes/">&larr; All notes</a></p>
+    </div>
+  </section>
+
+{{ finale(site, "Want a price on your place?",
+   "Tell us about it and we will come look. No charge, and no sales pitch.") }}

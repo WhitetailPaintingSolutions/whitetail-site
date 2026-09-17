@@ -1,0 +1,14 @@
+{
+  "name": "whitetail-painting-solutions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Whitetail Painting Solutions website",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6"
+  },
+  "type": "module"
+}

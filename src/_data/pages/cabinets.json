@@ -1,0 +1,56 @@
+{
+  "eyebrow": "Cabinet painting",
+  "heading": "A new kitchen, without a new kitchen.",
+  "lede": "Kitchen and bath cabinets, cleaned, sanded, and sprayed. It is a slower job than walls, and it is worth the extra days.",
+  "photo": "",
+  "includesHeading": "Doors, drawers, and boxes.",
+  "includes": [
+    "Doors and drawer fronts removed, labeled, and sprayed off site or in a clean space",
+    "Cabinet boxes and face frames done in place",
+    "Degreasing — kitchens carry more grease than people expect",
+    "Sanding and a bonding primer so the finish holds",
+    "Sprayed finish, not brushed, so there are no brush marks",
+    "New hinges and handles fitted if you want them",
+    "Everything rehung and adjusted so the doors line up"
+  ],
+  "faq": [
+    {
+      "question": "How long is my kitchen out of use?",
+      "answer": "Plan on most of a week, sometimes longer. The boxes go back into use quickly, but the doors need drying time between coats and then curing time before they can be handled.\n\nYou keep your sink, your stove, and your fridge the whole time. It is the doors you lose, not the kitchen."
+    },
+    {
+      "question": "Will it chip?",
+      "answer": "Any finish chips if you hit it hard enough. What decides how well it holds up is the degreasing, the sanding, and the primer underneath — which is why we spend more days on those than on the paint. Give it a couple of weeks to fully harden before you are rough with it."
+    },
+    {
+      "question": "Can you do just the island, or just the uppers?",
+      "answer": "Yes. A painted island under stained uppers is a common way to spend less and still change how the room feels. We will tell you honestly whether we think it will look right in your kitchen."
+    },
+    {
+      "question": "What about the inside of the cabinets?",
+      "answer": "Usually not, and usually you do not want to pay for it. The insides are not what you see, and painting them adds days. If you want them done, say so and we will price it."
+    }
+  ],
+  "steps": [
+    {
+      "title": "Label and remove",
+      "body": "Every door and drawer front comes off and gets a number, so each one goes back on the hinge it came off. Hardware is bagged by door."
+    },
+    {
+      "title": "Clean and degrease",
+      "body": "Kitchen cabinets carry cooking grease, especially near the stove. It has to come off completely or the new finish will not stick to it."
+    },
+    {
+      "title": "Sand and prime",
+      "body": "Everything gets scuffed and given a bonding primer. On cabinets this is the whole job — skip it and the finish chips off the first time a pan knocks a door."
+    },
+    {
+      "title": "Spray, cure, rehang",
+      "body": "Sprayed in thin coats with drying time between them. Then it needs days to harden before it goes back to daily use, which is why this job cannot be rushed."
+    }
+  ],
+  "galleryHeading": "Kitchens we have finished.",
+  "stepsLede": "Cabinets are the slowest job we do, and the one where rushing shows the fastest. Most of the days on site go to cleaning, sanding and priming before any color is sprayed.",
+  "photoHint": "a finished kitchen",
+  "category": "Cabinets"
+}
