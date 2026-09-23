@@ -32,6 +32,15 @@ description: "Request a free painting estimate from Whitetail Painting Solutions
            on import. Renaming one means changing whatever receives it too —
            see assets/site.js. #}
         <form id="estimateForm" novalidate>
+          {# Spam trap. A person never sees either of these: the first is
+             hidden, and bots fill every input they find; the second records
+             when the page loaded, and a submission faster than three seconds
+             was not typed by a human. Both are checked on the server. #}
+          <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <input id="t" name="t" type="hidden" value="">
           <div class="fgrid">
             <div class="f">
               <label for="first_name">First name</label>
@@ -83,8 +92,6 @@ description: "Request a free painting estimate from Whitetail Painting Solutions
           <p style="margin-top:28px">
             <button class="btn" type="submit" id="sendBtn">Send it over</button>
           </p>
-          <p class="fnote">We will use this to get back to you about your painting job, and
-            nothing else. No list, no sharing it around.</p>
           <p class="fmsg" id="formMsg" role="status" aria-live="polite"></p>
         </form>
       </div>
