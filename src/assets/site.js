@@ -97,6 +97,10 @@ const ENDPOINT = (typeof window !== 'undefined' && window.WT_ENDPOINT) || '';
   const form = document.getElementById('estimateForm');
   if (!form) return;
 
+  /* Stamped as late as possible — this is the clock the server checks. */
+  const stamp = document.getElementById('t');
+  if (stamp) stamp.value = String(Date.now());
+
   const btn   = document.getElementById('sendBtn');
   const msg   = document.getElementById('formMsg');
   const LABEL = btn.textContent;
@@ -132,16 +136,16 @@ const ENDPOINT = (typeof window !== 'undefined' && window.WT_ENDPOINT) || '';
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
+    /* No endpoint means nothing can be sent. Previously this faked a
+       success message, which is the worst possible outcome — the visitor
+       walks away believing they have been in touch. Tell them the truth
+       and give them the phone number instead. */
     if (!ENDPOINT) {
-      console.log('Would send:', data);
-      setTimeout(() => {
-        form.reset();
-        btn.disabled = false;
-        btn.textContent = LABEL;
-        say('Thanks — that came through. We will call you back shortly. ' +
-            '(Draft: nothing was actually sent.)', true);
-      }, 600);
-      return;
+      console.warn('No form endpoint set — the form cannot send.');
+      btn.disabled = false;
+      btn.textContent = LABEL;
+      return say('Sorry — the form is not working right now. ' +
+                 'Please call us at 717-582-1146.', false);
     }
 
     try {
@@ -152,7 +156,7 @@ const ENDPOINT = (typeof window !== 'undefined' && window.WT_ENDPOINT) || '';
       });
       if (!res.ok) throw new Error(res.status);
       form.reset();
-      say('Thanks — that came through. We will call you back shortly.', true);
+      say('Thank you for your submission. We will be reaching out shortly.', true);
     } catch (err) {
       say('That did not send. Please call us at 717-582-1146 and we will ' +
           'take it down over the phone.', false);
