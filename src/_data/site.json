@@ -14,5 +14,5 @@
     "Lewistown, Burnham, and the Kishacoquillas Valley",
     "Newport, Millerstown, and Liverpool"
   ],
-  "formEndpoint": ""
+  "formEndpoint": "/.netlify/functions/lead"
 }
