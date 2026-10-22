@@ -1,0 +1,56 @@
+{
+  "eyebrow": "Interior painting",
+  "heading": "Inside the house, start to finish.",
+  "lede": "Walls, ceilings, doors, and trim. We move what we can and cover the rest.",
+  "photo": "/assets/uploads/whitetail-interior-rolling.jpg",
+  "includesHeading": "Everything inside a room.",
+  "includes": [
+    "Walls and ceilings",
+    "Doors, door frames, and window trim",
+    "Baseboard, crown, and chair rail",
+    "Closets and stairways",
+    "Filling nail holes and small cracks",
+    "Caulking gaps where trim meets the wall",
+    "Priming stains and patches so they don't show through"
+  ],
+  "faq": [
+    {
+      "question": "Can we stay home while you paint?",
+      "answer": "Yes, most people do. We work in one area at a time, so you can use the rest of the house. We open windows and run a fan when we can."
+    },
+    {
+      "question": "Do you paint ceilings?",
+      "answer": "Yes. It's best to paint the ceiling at the same time as the walls."
+    },
+    {
+      "question": "What about small repairs?",
+      "answer": "We fill nail holes, dents, and small cracks as part of the job. If we find bigger damage, we'll show you and give you a separate price."
+    },
+    {
+      "question": "How many coats do we get?",
+      "answer": "Two coats, with primer where it's needed. A big color change may need a third. If so, we'll tell you before we start."
+    }
+  ],
+  "steps": [
+    {
+      "title": "Cover and clear",
+      "body": "We move furniture to the middle of the room and cover it. Floors get drop cloths. Outlet covers come off."
+    },
+    {
+      "title": "Patch and sand",
+      "body": "We fill holes and cracks, then sand them smooth. This is what makes the wall look good."
+    },
+    {
+      "title": "Prime what needs it",
+      "body": "Stains, patches, and big color changes get primer first. We only prime where it's needed."
+    },
+    {
+      "title": "Two coats",
+      "body": "We brush the edges and corners by hand, then roll the rest."
+    }
+  ],
+  "galleryHeading": "Rooms we have finished.",
+  "stepsLede": "Most of a good paint job is the prep. That's what makes the lines straight and the walls smooth.",
+  "photoHint": "a finished interior room",
+  "category": "Interior"
+}

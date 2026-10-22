@@ -1,0 +1,34 @@
+{
+  "eyebrow": "Free estimate",
+  "heading": "Tell us about your project.",
+  "lede": "It takes about two minutes. We'll call you back to set up a time to come look. It's free.",
+  "helpsHeading": "What helps us most",
+  "helps": [
+    "Photos of the room, house, or deck",
+    "About how many rooms",
+    "Any colors you like",
+    "When you'd like it done"
+  ],
+  "faq": [
+    {
+      "question": "What happens after I send this?",
+      "answer": "We call you to set up a time to come look. The visit is free and takes about half an hour. Then you get a price in writing. Nothing starts until you say yes."
+    },
+    {
+      "question": "Does the estimate cost anything?",
+      "answer": "No. It's free, even if you don't hire us."
+    },
+    {
+      "question": "Will I get sales calls?",
+      "answer": "No. We only use your info to get back to you about your job. We never share it."
+    },
+    {
+      "question": "How soon can you start?",
+      "answer": "It depends on the time of year. Spring and summer fill up first. When we come look, we'll tell you when we can fit you in."
+    },
+    {
+      "question": "What if I only want a price for now?",
+      "answer": "That's fine. Lots of people are planning ahead. We'll give you a price and won't bug you about it."
+    }
+  ]
+}

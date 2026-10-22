@@ -1,0 +1,33 @@
+---
+layout: base.njk
+permalink: /work/
+title: "Our Work — Whitetail Painting Solutions, Juniata County PA"
+description: "Before and after photos of painting jobs finished by Whitetail Painting Solutions in Juniata County, Pennsylvania."
+---
+{% from "parts.njk" import phero, reviews as reviewBlock, finale, gallery %}
+{%- set p = pages.work -%}
+{{ phero("Our Work", p.eyebrow, p.heading, p.lede) }}
+
+{%- set cats = [
+  { key: "Interior", head: "Inside the house.", alt: false },
+  { key: "Exterior", head: "Outside the house.", alt: true },
+  { key: "Decks & Fences", head: "Outside living.", alt: true }
+] %}
+{%- for c in cats %}
+{%- set jobs = projects.items | byCategory(c.key) | selectattr("before") | selectattr("after") %}
+{%- if jobs.length %}
+  <section class="band{% if not c.alt %} band-2{% endif %}">
+    <div class="shell">
+      <div class="ba-head">
+        <div class="flank"><span>{{ c.key }}</span></div>
+        <h2 class="d">{{ c.head }}</h2>
+      </div>
+      {{ gallery(jobs | newestFirst) }}
+    </div>
+  </section>
+{%- endif %}
+{%- endfor %}
+
+{{ reviewBlock(reviews) }}
+{{ finale(site, "Want results like this?",
+   "Send us a photo and we'll come take a look. It's free.") }}

@@ -1,0 +1,56 @@
+{
+  "eyebrow": "Exterior painting",
+  "heading": "Outside, and ready for winter.",
+  "lede": "Siding, trim, porches, and shutters. We wash, scrape, and prime first, and we keep an eye on the weather.",
+  "photo": "/assets/uploads/whitetail-exterior-ladder.jpg",
+  "includesHeading": "The whole outside of the house.",
+  "includes": [
+    "Siding: wood, fiber cement, aluminum, and stucco",
+    "Trim, soffit, and fascia",
+    "Porch ceilings, posts, and railings",
+    "Shutters and front doors",
+    "Scraping and sanding loose paint",
+    "Caulking gaps so water stays out",
+    "Priming every bare spot"
+  ],
+  "faq": [
+    {
+      "question": "When can you paint outside?",
+      "answer": "Usually April through October. Paint needs the right weather to stick. If it's too cold or wet, we'll tell you it's worth waiting."
+    },
+    {
+      "question": "What if it rains?",
+      "answer": "We stop and cover things up. Rain can push back the finish date. We'll keep you in the loop."
+    },
+    {
+      "question": "Do you power wash?",
+      "answer": "Yes. We use the right pressure for your siding, because too much can hurt old wood."
+    },
+    {
+      "question": "How long will it last?",
+      "answer": "It depends on how much sun and weather your house gets. When we come look, we'll tell you what we see."
+    }
+  ],
+  "steps": [
+    {
+      "title": "Wash it",
+      "body": "Dirt and mildew come off first. Paint won't stick to a dirty wall."
+    },
+    {
+      "title": "Scrape and sand",
+      "body": "Loose and peeling paint comes off. We sand the edges smooth so they don't show."
+    },
+    {
+      "title": "Prime and caulk",
+      "body": "Bare spots get primer and gaps get caulk. This is what makes the paint last."
+    },
+    {
+      "title": "Paint, and watch the sky",
+      "body": "Two coats. We plan around the sun and rain so the paint dries right."
+    }
+  ],
+  "galleryHeading": "Houses we have finished.",
+  "stepsLede": "Outside paint lasts because of the prep. Washing, scraping, and priming take the most time, and they matter the most.",
+  "photoHint": "a finished house exterior",
+  "category": "Exterior"
+}

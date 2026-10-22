@@ -1,0 +1,100 @@
+---
+layout: base.njk
+permalink: /contact/
+title: "Free Estimate — Whitetail Painting Solutions, Juniata County PA"
+description: "Request a free painting estimate from Whitetail Painting Solutions in Juniata County, Pennsylvania. It takes about two minutes and it's free."
+---
+{% from "parts.njk" import phero, faq %}
+{%- set p = pages.contact -%}
+{{ phero("Free Estimate", p.eyebrow, p.heading, p.lede, false) }}
+
+  <section class="band band-2">
+    <div class="shell hang">
+      <div>
+        <div class="eyebrow">Get in touch</div>
+        <h2 class="d">Rather talk?</h2>
+        <p class="lede soft" style="margin-top:22px">Call or text. If we're up a ladder,
+          we'll call you back as soon as we can.</p>
+        <p style="margin-top:20px"><a class="tel" href="tel:{{ site.phoneLink }}">{{ site.phone }}</a></p>
+
+        <h3 class="d" style="margin-top:44px">{{ p.helpsHeading }}</h3>
+        <ul class="pts">
+          {%- for x in p.helps %}
+          <li>{{ x }}</li>
+          {%- endfor %}
+        </ul>
+        <p class="soft" style="margin-top:26px;font-size:15px">You don't need all of this. Just tell
+          us what you want painted.</p>
+      </div>
+
+      <div class="formwrap">
+        {# Field names are deliberately plain and close to what a CRM expects
+           on import. Renaming one means changing whatever receives it too —
+           see assets/site.js. #}
+        <form id="estimateForm" novalidate>
+          {# Spam trap. A person never sees either of these: the first is
+             hidden, and bots fill every input they find; the second records
+             when the page loaded, and a submission faster than three seconds
+             was not typed by a human. Both are checked on the server. #}
+          <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <input id="t" name="t" type="hidden" value="">
+          <div class="fgrid">
+            <div class="f">
+              <label for="first_name">First name</label>
+              <input id="first_name" name="first_name" type="text" autocomplete="given-name">
+            </div>
+            <div class="f">
+              <label for="last_name">Last name</label>
+              <input id="last_name" name="last_name" type="text" autocomplete="family-name">
+            </div>
+            <div class="f">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="f">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="f wide">
+              <label for="address">Where is the job?</label>
+              <input id="address" name="address" type="text" autocomplete="street-address">
+            </div>
+            <div class="f">
+              <label for="job_type">What needs painting?</label>
+              <select id="job_type" name="job_type">
+                <option value="">Choose one</option>
+                <option>Interior</option>
+                <option>Exterior</option>
+                <option>Deck or fence</option>
+                <option>More than one</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="f">
+              <label for="timing">When were you hoping?</label>
+              <select id="timing" name="timing">
+                <option value="">Choose one</option>
+                <option>As soon as you can</option>
+                <option>In the next month</option>
+                <option>In the next few months</option>
+                <option>Just getting a price for now</option>
+              </select>
+            </div>
+            <div class="f wide">
+              <label for="notes">Anything else we should know?</label>
+              <textarea id="notes" name="notes"></textarea>
+            </div>
+          </div>
+          <p style="margin-top:28px">
+            <button class="btn" type="submit" id="sendBtn">Send it over</button>
+          </p>
+          <p class="fmsg" id="formMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+{{ faq(p.faq, "Questions", "Before you send it.") }}
