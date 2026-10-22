@@ -270,6 +270,8 @@ nav.main > a:hover,.drop > button:hover,nav.main > a[aria-current]{
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
 .gal-2{grid-template-columns:repeat(2,1fr)}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+/* one job on file: show it larger instead of in one of three columns */
+.gal:has(> figure:only-child){grid-template-columns:minmax(0,640px)}
 .gcap{margin-top:13px;font-size:13px;letter-spacing:.06em;color:var(--body-dim)}
 
 /* ---------------- reviews ----------------
