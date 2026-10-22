@@ -65,14 +65,16 @@ description: "Whitetail Painting Solutions is a small painting crew in Juniata C
   </section>
 
   <section class="band band-2">
-    <div class="shell split-r">
+    <div class="shell{% if p.truckPhoto %} split-r{% endif %}">
       <div>
         <div class="eyebrow">Paperwork</div>
         <h2 class="d">Insured, and happy to prove it.</h2>
         <p class="lede soft" style="margin-top:22px">{{ site.insuredLine }}</p>
         <p style="margin-top:26px"><a class="textlink" href="/contact/">Ask us anything &rarr;</a></p>
       </div>
+      {%- if p.truckPhoto %}
       {% photo p.truckPhoto, "The truck", "ph-wide", "Photo — the truck, or the crew at work" %}
+      {%- endif %}
     </div>
   </section>
 

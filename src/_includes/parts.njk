@@ -80,38 +80,23 @@
 
 
 {# ---------- before / after gallery ----------
-   Falls back to placeholders when no projects are loaded yet, so the
-   page still shows its shape on day one. #}
-{% macro gallery(items, empty=3) %}
+   Shows only jobs that have BOTH a before and an after photo. If there are
+   none, it prints nothing at all — no empty boxes. #}
+{% macro gallery(items) %}
+  {%- set real = (items or []) | selectattr("before") | selectattr("after") %}
+  {%- if real.length %}
   <div class="gal">
-    {%- if items and items.length %}
-      {%- for p in items %}
-      <figure style="margin:0">
-        <div class="pair">
-          <div class="ph ph-sq{% if p.before %} has-photo{% endif %}">
-            {%- if p.before %}<img src="{{ p.before }}" alt="{{ p.title }} before" loading="lazy" decoding="async">
-            {%- else %}<span>Before</span>{% endif %}
-          </div>
-          <div class="ph ph-sq{% if p.after %} has-photo{% endif %}">
-            {%- if p.after %}<img src="{{ p.after }}" alt="{{ p.title }} after" loading="lazy" decoding="async">
-            {%- else %}<span>After</span>{% endif %}
-          </div>
-        </div>
-        <figcaption class="gcap">{{ p.title }}{% if p.town %} &mdash; {{ p.town }}{% endif %}</figcaption>
-      </figure>
-      {%- endfor %}
-    {%- else %}
-      {%- for i in range(0, empty) %}
-      <figure style="margin:0">
-        <div class="pair">
-          <div class="ph ph-sq"><span>Before</span></div>
-          <div class="ph ph-sq"><span>After</span></div>
-        </div>
-        <figcaption class="gcap">Add a project in the CMS to fill this</figcaption>
-      </figure>
-      {%- endfor %}
-    {%- endif %}
+    {%- for p in real %}
+    <figure style="margin:0">
+      <div class="pair">
+        <div class="ph ph-sq has-photo"><img src="{{ p.before }}" alt="{{ p.title }} before" loading="lazy" decoding="async"></div>
+        <div class="ph ph-sq has-photo"><img src="{{ p.after }}" alt="{{ p.title }} after" loading="lazy" decoding="async"></div>
+      </div>
+      <figcaption class="gcap">{{ p.title }}{% if p.town %} &mdash; {{ p.town }}{% endif %}</figcaption>
+    </figure>
+    {%- endfor %}
   </div>
+  {%- endif %}
 {% endmacro %}
 
 

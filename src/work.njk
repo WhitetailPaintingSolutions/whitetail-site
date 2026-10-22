@@ -11,17 +11,19 @@ description: "Before and after photos of interior, exterior, cabinet and deck pa
 {%- set cats = [
   { key: "Interior", head: "Inside the house.", alt: false },
   { key: "Exterior", head: "Outside the house.", alt: true },
-  { key: "Cabinets", head: "Kitchens and baths.", alt: false },
   { key: "Decks & Fences", head: "Outside living.", alt: true }
 ] %}
 {%- for c in cats %}
+{%- set jobs = projects.items | byCategory(c.key) | selectattr("before") | selectattr("after") %}
+{%- if jobs.length %}
   <section class="band{% if not c.alt %} band-2{% endif %}">
     <div class="shell">
       <div class="eyebrow">{{ c.key }}</div>
       <h2 class="d">{{ c.head }}</h2>
-      {{ gallery(projects.items | byCategory(c.key) | newestFirst) }}
+      {{ gallery(jobs | newestFirst) }}
     </div>
   </section>
+{%- endif %}
 {%- endfor %}
 
 {{ reviewBlock(reviews) }}

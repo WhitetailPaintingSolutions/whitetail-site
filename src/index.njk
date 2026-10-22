@@ -17,7 +17,7 @@ description: "Interior and exterior painting in Juniata County and Central Penns
           <a class="btn" href="/contact/">Get a free estimate</a>
           <a class="tel" href="tel:{{ site.phoneLink }}">{{ site.phone }}</a>
         </div>
-        <p class="hero-note">Interior &middot; Exterior &middot; Cabinets &middot; Decks &amp; fences</p>
+        <p class="hero-note">Interior &middot; Exterior &middot; Decks &amp; fences</p>
       </div>
       {% photo p.heroPhoto, "A finished room", "ph-tall", "Photo — your best finished room. Wide shot, daylight, nothing on the floor." %}
     </div>
@@ -32,8 +32,10 @@ description: "Interior and exterior painting in Juniata County and Central Penns
         </div>
         <div><p class="lede soft">{{ p.servicesLede }}</p></div>
       </div>
-      <div class="svc">
-        {%- for k in ["interior","exterior","cabinets","decks"] %}
+      <div class="svc svc-3">
+        {#- Cabinets is hidden for now. To bring it back, add "cabinets" to this list,
+            remove svc-3 above, and add it back to the nav in _includes/base.njk. #}
+        {%- for k in ["interior","exterior","decks"] %}
         {%- set s = pages[k] %}
         <a class="card" href="/{{ k }}/">
           {% photo s.photo, s.category, "ph-sq", "Photo — " + s.photoHint %}
@@ -48,6 +50,11 @@ description: "Interior and exterior painting in Juniata County and Central Penns
     </div>
   </section>
 
+  {#- Only jobs that have BOTH a before and an after photo are shown. One for now.
+      When there are more, change limit(1) to limit(3) and put the
+      "See more of our work" link back under the gallery. #}
+  {%- set shown = projects.items | selectattr("before") | selectattr("after") | newestFirst | limit(1) %}
+  {%- if shown.length %}
   <section class="band">
     <div class="shell">
       <div class="hang">
@@ -60,10 +67,10 @@ description: "Interior and exterior painting in Juniata County and Central Penns
             what we have finished. These are our own jobs, photographed the day we packed up.</p>
         </div>
       </div>
-      {{ gallery(projects.items | newestFirst | limit(3)) }}
-      <p style="margin-top:36px"><a class="textlink" href="/work/">See more of our work &rarr;</a></p>
+      {{ gallery(shown) }}
     </div>
   </section>
+  {%- endif %}
 
   <section class="band band-cream on-cream" id="process">
     <div class="shell">

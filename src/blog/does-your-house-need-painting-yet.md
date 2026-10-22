@@ -2,7 +2,7 @@
 title: How to tell whether your house actually needs painting yet
 date: 2026-09-15
 summary: Four things to look at before you call anybody, including us. Sometimes the answer is that it can wait another year.
-cover: ""
+cover: "/assets/uploads/whitetail-logo-cover.jpg"
 draft: false
 ---
 

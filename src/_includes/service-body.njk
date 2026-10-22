@@ -30,6 +30,8 @@
     </div>
   </section>
 
+  {%- set jobs = projects.items | byCategory(p.category) | selectattr("before") | selectattr("after") %}
+  {%- if jobs.length %}
   <section class="band">
     <div class="shell">
       <div class="hang">
@@ -39,9 +41,10 @@
         </div>
         <div><p class="lede soft">These are our own jobs, photographed the day we packed up.</p></div>
       </div>
-      {{ gallery(projects.items | byCategory(p.category) | newestFirst | limit(3)) }}
+      {{ gallery(jobs | newestFirst | limit(3)) }}
     </div>
   </section>
+  {%- endif %}
 
 {{ faq(p.faq, "Questions", "About this kind of job.", false) }}
 {{ finale(site, "Want a price on this?", "Send us the room or the room count and we will come look. No charge, and no sales pitch.") }}
