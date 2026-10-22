@@ -1,34 +1,34 @@
 {
   "eyebrow": "Free estimate",
-  "heading": "Tell us what you are thinking about.",
-  "lede": "It takes about two minutes. We will call you back to set up a time to come look. No charge, and no sales pitch.",
+  "heading": "Tell us about your project.",
+  "lede": "It takes about two minutes. We'll call you back to set up a time to come look. It's free.",
   "helpsHeading": "What helps us most",
   "helps": [
-    "Photos of the room, the house, or the deck",
-    "Rough idea of how many rooms",
-    "Any color you already have in mind",
-    "When you were hoping to have it done"
+    "Photos of the room, house, or deck",
+    "About how many rooms",
+    "Any colors you like",
+    "When you'd like it done"
   ],
   "faq": [
     {
       "question": "What happens after I send this?",
-      "answer": "We call you back to set up a time to come look at the job. That visit is free, takes about half an hour, and you get a written price afterwards. Nothing starts until you say so."
+      "answer": "We call you to set up a time to come look. The visit is free and takes about half an hour. Then you get a price in writing. Nothing starts until you say yes."
     },
     {
       "question": "Does the estimate cost anything?",
-      "answer": "No. Coming out and giving you a price is free, whether or not you hire us."
+      "answer": "No. It's free, even if you don't hire us."
     },
     {
-      "question": "Am I going to get sales calls?",
-      "answer": "No. We use what you send to get back to you about your painting job and nothing else. We do not add you to a list and we do not pass your details around."
+      "question": "Will I get sales calls?",
+      "answer": "No. We only use your info to get back to you about your job. We never share it."
     },
     {
       "question": "How soon can you start?",
-      "answer": "It depends on the season and what we have booked. Spring and early summer fill up first. When we come look we will tell you honestly where you would fall in the schedule."
+      "answer": "It depends on the time of year. Spring and summer fill up first. When we come look, we'll tell you when we can fit you in."
     },
     {
       "question": "What if I only want a price for now?",
-      "answer": "That is fine, and it is one of the options on the form. Plenty of people are planning for next year or comparing a couple of quotes. We will give you the price and leave you alone about it."
+      "answer": "That's fine. Lots of people are planning ahead. We'll give you a price and won't bug you about it."
     }
   ]
 }

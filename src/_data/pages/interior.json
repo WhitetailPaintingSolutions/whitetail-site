@@ -1,56 +1,56 @@
 {
   "eyebrow": "Interior painting",
   "heading": "Inside the house, start to finish.",
-  "lede": "Walls, ceilings, doors, and trim. We move what we can, cover what we cannot, and keep the dust down while we work.",
+  "lede": "Walls, ceilings, doors, and trim. We move what we can and cover the rest.",
   "photo": "/assets/uploads/whitetail-interior-rolling.jpg",
   "includesHeading": "Everything inside a room.",
   "includes": [
     "Walls and ceilings",
     "Doors, door frames, and window trim",
     "Baseboard, crown, and chair rail",
-    "Closets and stairwells",
+    "Closets and stairways",
     "Filling nail holes and small cracks",
-    "Caulking gaps where trim meets wall",
-    "Priming water stains and patches so they do not ghost through"
+    "Caulking gaps where trim meets the wall",
+    "Priming stains and patches so they don't show through"
   ],
   "faq": [
     {
-      "question": "Can we stay in the house while you paint?",
-      "answer": "Most people do. We work one area at a time so you keep the rest of the house. Modern interior paint has much less smell than it used to, though we still open windows and run a fan when we can."
+      "question": "Can we stay home while you paint?",
+      "answer": "Yes, most people do. We work in one area at a time, so you can use the rest of the house. We open windows and run a fan when we can."
     },
     {
       "question": "Do you paint ceilings?",
-      "answer": "Yes, and we would rather do the ceiling at the same time as the walls. Painting a ceiling later means masking everything you just finished."
+      "answer": "Yes. It's best to paint the ceiling at the same time as the walls."
     },
     {
       "question": "What about small repairs?",
-      "answer": "Nail holes, dents, hairline cracks and loose caulk are part of the job. Bigger drywall damage, water damage, or anything structural we will point out and price separately so you can see what it is."
+      "answer": "We fill nail holes, dents, and small cracks as part of the job. If we find bigger damage, we'll show you and give you a separate price."
     },
     {
       "question": "How many coats do we get?",
-      "answer": "Two, over primer where primer is needed. A big color change can want a third, and if yours does we will say so before we start rather than after."
+      "answer": "Two coats, with primer where it's needed. A big color change may need a third. If so, we'll tell you before we start."
     }
   ],
   "steps": [
     {
       "title": "Cover and clear",
-      "body": "Furniture to the middle of the room and under cover. Floors get drop cloths, not newspaper. Switch plates come off."
+      "body": "We move furniture to the middle of the room and cover it. Floors get drop cloths. Outlet covers come off."
     },
     {
       "title": "Patch and sand",
-      "body": "Nail holes, dents, and hairline cracks get filled, then sanded flat. This is the step that decides how the wall looks in daylight."
+      "body": "We fill holes and cracks, then sand them smooth. This is what makes the wall look good."
     },
     {
       "title": "Prime what needs it",
-      "body": "Bare patches, water stains, and big color changes get primer first. Not every wall needs it, and we will not charge you for coats you do not need."
+      "body": "Stains, patches, and big color changes get primer first. We only prime where it's needed."
     },
     {
-      "title": "Two coats, cut by hand",
-      "body": "Edges and corners cut in with a brush, the rest rolled. Then the room goes back together and the floor gets swept."
+      "title": "Two coats",
+      "body": "We brush the edges and corners by hand, then roll the rest."
     }
   ],
   "galleryHeading": "Rooms we have finished.",
-  "stepsLede": "Interior work is mostly preparation. The painting part is the short end of it, and the part people notice is whether the patching was done properly and whether the lines are straight.",
+  "stepsLede": "Most of a good paint job is the prep. That's what makes the lines straight and the walls smooth.",
   "photoHint": "a finished interior room",
   "category": "Interior"
 }

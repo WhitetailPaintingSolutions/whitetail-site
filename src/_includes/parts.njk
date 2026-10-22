@@ -80,22 +80,30 @@
 
 
 {# ---------- before / after gallery ----------
-   Shows only jobs that have BOTH a before and an after photo. If there are
-   none, it prints nothing at all — no empty boxes. #}
-{% macro gallery(items) %}
+   Shows only jobs that have BOTH a before and an after photo. Each job is
+   one big card: the two photos side by side with BEFORE / AFTER tags on
+   them, and the job name underneath. If there are none, it prints nothing.
+   cta=true adds the estimate button and phone number under the photos. #}
+{% macro gallery(items, cta=false, site=null) %}
   {%- set real = (items or []) | selectattr("before") | selectattr("after") %}
   {%- if real.length %}
-  <div class="gal">
+  <div class="bas{% if real.length == 1 %} bas-one{% endif %}">
     {%- for p in real %}
-    <figure style="margin:0">
-      <div class="pair">
-        <div class="ph ph-sq has-photo"><img src="{{ p.before }}" alt="{{ p.title }} before" loading="lazy" decoding="async"></div>
-        <div class="ph ph-sq has-photo"><img src="{{ p.after }}" alt="{{ p.title }} after" loading="lazy" decoding="async"></div>
+    <figure class="ba">
+      <div class="ba-pair">
+        <div class="ba-img"><img src="{{ p.before }}" alt="{{ p.title }}, before" loading="lazy" decoding="async"><span class="ba-tag">Before</span></div>
+        <div class="ba-img"><img src="{{ p.after }}" alt="{{ p.title }}, after" loading="lazy" decoding="async"><span class="ba-tag ba-after">After</span></div>
       </div>
-      <figcaption class="gcap">{{ p.title }}{% if p.town %} &mdash; {{ p.town }}{% endif %}</figcaption>
+      <figcaption class="ba-cap">{{ p.title }}{% if p.town %}<span>{{ p.town }}</span>{% endif %}</figcaption>
     </figure>
     {%- endfor %}
   </div>
+  {%- if cta and site %}
+  <div class="ba-cta">
+    <a class="btn" href="/contact/">Get a free estimate</a>
+    <a class="tel" href="tel:{{ site.phoneLink }}">{{ site.phone }}</a>
+  </div>
+  {%- endif %}
   {%- endif %}
 {% endmacro %}
 
@@ -122,7 +130,7 @@
   <div class="steps">
     {%- for s in items %}
     <div class="step">
-      <span class="n">{{ loop.index | pad }}</span><div class="rule"></div>
+      <span class="n">Step {{ loop.index }}</span><div class="rule"></div>
       <h3>{{ s.title }}</h3>
       <p>{{ s.body }}</p>
     </div>

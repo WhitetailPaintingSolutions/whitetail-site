@@ -1,56 +1,56 @@
 {
   "eyebrow": "Exterior painting",
   "heading": "Outside, and ready for winter.",
-  "lede": "Siding, trim, porches, and shutters. We wash first, scrape and prime what needs it, and watch the weather before we start.",
+  "lede": "Siding, trim, porches, and shutters. We wash, scrape, and prime first, and we keep an eye on the weather.",
   "photo": "/assets/uploads/whitetail-exterior-ladder.jpg",
   "includesHeading": "The whole outside of the house.",
   "includes": [
-    "Siding — wood, fiber cement, aluminum, and stucco",
+    "Siding: wood, fiber cement, aluminum, and stucco",
     "Trim, soffit, and fascia",
     "Porch ceilings, posts, and railings",
     "Shutters and front doors",
     "Scraping and sanding loose paint",
-    "Caulking open joints before they let water in",
+    "Caulking gaps so water stays out",
     "Priming every bare spot"
   ],
   "faq": [
     {
-      "question": "When is exterior painting season?",
-      "answer": "Roughly April through October here, depending on the year. Paint needs the temperature and the damp to cooperate, so late fall through early spring is usually a no. Call anyway and we will tell you honestly whether it is worth waiting."
+      "question": "When can you paint outside?",
+      "answer": "Usually April through October. Paint needs the right weather to stick. If it's too cold or wet, we'll tell you it's worth waiting."
     },
     {
-      "question": "What happens if it rains partway through?",
-      "answer": "We stop, and we cover what needs covering. Exterior work is planned around the forecast, so a wet week can push the finish date. We will keep you told rather than leaving you guessing."
+      "question": "What if it rains?",
+      "answer": "We stop and cover things up. Rain can push back the finish date. We'll keep you in the loop."
     },
     {
-      "question": "Do you pressure wash?",
-      "answer": "We wash, and how hard depends on the siding. Old wood and soft stucco can be damaged by too much pressure, so the setting matters more than the machine."
+      "question": "Do you power wash?",
+      "answer": "Yes. We use the right pressure for your siding, because too much can hurt old wood."
     },
     {
       "question": "How long will it last?",
-      "answer": "That depends on which side of the house, how much sun and weather it takes, and what is under the old paint. A sheltered north wall and a south wall that bakes all afternoon are two different jobs. We will tell you what we are seeing when we come look."
+      "answer": "It depends on how much sun and weather your house gets. When we come look, we'll tell you what we see."
     }
   ],
   "steps": [
     {
       "title": "Wash it",
-      "body": "Dirt, chalk, and mildew come off first. Paint does not stick to a dirty wall, and no amount of good paint fixes that."
+      "body": "Dirt and mildew come off first. Paint won't stick to a dirty wall."
     },
     {
       "title": "Scrape and sand",
-      "body": "Loose and peeling paint comes off, and hard edges get feathered so you cannot see the old line through the new coat."
+      "body": "Loose and peeling paint comes off. We sand the edges smooth so they don't show."
     },
     {
       "title": "Prime and caulk",
-      "body": "Every bare spot gets primer. Open joints get caulk. This is the part that decides how long the job lasts, and it is the part nobody sees."
+      "body": "Bare spots get primer and gaps get caulk. This is what makes the paint last."
     },
     {
-      "title": "Paint, watching the sky",
-      "body": "Two coats, working with the shade rather than against it. We do not start a wall we cannot finish before the dew or the rain."
+      "title": "Paint, and watch the sky",
+      "body": "Two coats. We plan around the sun and rain so the paint dries right."
     }
   ],
   "galleryHeading": "Houses we have finished.",
-  "stepsLede": "Exterior work lives or dies on what happens before the paint. Washing, scraping and priming are most of the days on site, and they are the reason one job lasts and another starts peeling.",
+  "stepsLede": "Outside paint lasts because of the prep. Washing, scraping, and priming take the most time, and they matter the most.",
   "photoHint": "a finished house exterior",
   "category": "Exterior"
 }

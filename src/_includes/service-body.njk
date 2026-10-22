@@ -34,12 +34,9 @@
   {%- if jobs.length %}
   <section class="band">
     <div class="shell">
-      <div class="hang">
-        <div>
-          <div class="eyebrow">Our work</div>
-          <h2 class="d">{{ p.galleryHeading }}</h2>
-        </div>
-        <div><p class="lede soft">These are our own jobs, photographed the day we packed up.</p></div>
+      <div class="ba-head">
+        <div class="flank"><span>Our work</span></div>
+        <h2 class="d">{{ p.galleryHeading }}</h2>
       </div>
       {{ gallery(jobs | newestFirst | limit(3)) }}
     </div>
@@ -47,4 +44,4 @@
   {%- endif %}
 
 {{ faq(p.faq, "Questions", "About this kind of job.", false) }}
-{{ finale(site, "Want a price on this?", "Send us the room or the room count and we will come look. No charge, and no sales pitch.") }}
+{{ finale(site, "Want a price on this?", "Tell us about your project and we'll come take a look. It's free.") }}

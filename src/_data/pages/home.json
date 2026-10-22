@@ -1,40 +1,40 @@
 {
   "heroEyebrow": "Juniata County, Pennsylvania",
-  "heroHeading": "Fall in love with your home again.",
-  "heroLede": "Interior and exterior painting, done carefully and cleaned up properly. You get the price in writing before we open a can, and your rooms go back together at the end of each day.",
+  "heroHeading": "We love to paint. Let's start on yours.",
+  "heroLede": "We paint the inside and outside of homes. We come look, give you a price in writing, and do the job right.",
   "heroPhoto": "/assets/uploads/whitetail-hero-porch-trim.jpg",
-  "servicesHeading": "Three things, done properly.",
-  "servicesLede": "Most of our work is inside people's homes, which means the prep and the cleanup matter as much as the paint. We would rather do a small number of things carefully than a long list in a hurry.",
-  "aboutHeading": "A small crew, working close to home.",
-  "aboutLine": "At Whitetail Painting Solutions we believe everyone deserves to be proud of their home.",
-  "aboutBody": "We are a painting company in Juniata County. We stay small on purpose, because the work is better when the same people show up each morning and the owner is on the job.",
+  "servicesHeading": "Three things, done right.",
+  "servicesLede": "Inside, outside, and decks and fences. We take our time and do each one well.",
+  "aboutHeading": "Meet Nick.",
+  "aboutLine": "Nick Losch owns Whitetail Painting Solutions. He started painting at 12, working with his uncles, and he still loves it.",
+  "aboutBody": "We believe everyone should be proud of their home.",
   "aboutPhoto": "/assets/uploads/whitetail-owner-portrait.jpg",
   "aboutPoints": [
-    "The same crew from the first day to the last",
-    "Written prices before any work starts",
-    "Floors covered, furniture moved back, site swept",
-    "Insured — happy to send you the certificate"
+    "A written price before we start",
+    "Floors and furniture covered while we work",
+    "Insured, and happy to show you",
+    "Based in Juniata County"
   ],
   "faq": [
     {
       "question": "What does painting cost?",
-      "answer": "It depends on the size of the rooms, the shape the surfaces are in, and how much prep they need. That is why we come look first. You get one written price covering the whole job, and it does not move unless you ask for something we did not talk about."
+      "answer": "It depends on the size of the job and how much the walls need fixing. That's why we come look first. Then you get one price in writing. It won't change unless you ask for more work."
     },
     {
-      "question": "How long will my house be torn up?",
-      "answer": "A single room is usually a day or two. A whole floor tends to run most of a week. Cabinets take longer than people expect, because the drying time between coats is not something we can rush. We will give you the days along with the price."
+      "question": "How long will it take?",
+      "answer": "One room usually takes a day or two. A whole floor can take most of a week. We'll tell you how many days when we give you the price."
     },
     {
       "question": "Do I need to move my furniture?",
-      "answer": "No. We move what we can and cover the rest. If there is something heavy, fragile, or important to you, tell us and we will work around it or wait for you to handle it yourself."
+      "answer": "No. We move what we can and cover the rest. If something is heavy or special to you, just tell us."
     },
     {
       "question": "What paint do you use?",
-      "answer": "Good paint from the regular brands, and which one depends on the room. Kitchens, bathrooms, and trim want something harder than a bedroom ceiling does. If you have a brand you prefer, we will use it."
+      "answer": "Good paint from brands you know. We pick the right kind for each room. If you have a brand you like, we'll use it."
     },
     {
       "question": "Where do you work?",
-      "answer": "Juniata County and the rest of Central Pennsylvania, within about an hour of home. If you are a little past that, ask — we may already be working near you."
+      "answer": "Juniata County and the rest of Central Pennsylvania, about an hour from home. If you're a little farther, ask anyway."
     }
   ]
 }

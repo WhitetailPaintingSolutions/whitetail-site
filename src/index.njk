@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /
 title: "Whitetail Painting Solutions — Interior & Exterior Painting in Juniata County, PA"
-description: "Interior and exterior painting in Juniata County and Central Pennsylvania. Written prices before we start, covered floors, and a clean site at the end of every day."
+description: "Interior and exterior painting in Juniata County and Central Pennsylvania. Free estimates and a written price before we start."
 ---
 {% from "parts.njk" import faq, reviews as reviewBlock, finale, gallery, steps as stepBlocks %}
 {%- set p = pages.home -%}
@@ -11,7 +11,8 @@ description: "Interior and exterior painting in Juniata County and Central Penns
     <div class="shell hero-in">
       <div class="hero-copy">
         <div class="flank"><span>{{ p.heroEyebrow }}</span></div>
-        <h1 class="d">{{ p.heroHeading }}</h1>
+        {#- Each sentence of the headline starts on its own line. #}
+        <h1 class="d">{%- for line in p.heroHeading.split(". ") %}<span class="hl">{{ line }}{% if not loop.last %}.{% endif %}</span> {% endfor -%}</h1>
         <p class="lede">{{ p.heroLede }}</p>
         <div class="hero-acts">
           <a class="btn" href="/contact/">Get a free estimate</a>
@@ -23,7 +24,7 @@ description: "Interior and exterior painting in Juniata County and Central Penns
     </div>
   </section>
 
-  <section class="band band-2" id="services">
+  <section class="band band-cream on-cream" id="services">
     <div class="shell">
       <div class="hang">
         <div>
@@ -57,49 +58,41 @@ description: "Interior and exterior painting in Juniata County and Central Penns
   {%- if shown.length %}
   <section class="band">
     <div class="shell">
-      <div class="hang">
-        <div>
-          <div class="eyebrow">Our work</div>
-          <h2 class="d">Before, and after.</h2>
-        </div>
-        <div>
-          <p class="lede soft">The fastest way to know whether we are any good is to look at
-            what we have finished. These are our own jobs, photographed the day we packed up.</p>
-        </div>
+      <div class="ba-head">
+        <div class="flank"><span>Our work</span></div>
+        <h2 class="d">Before &amp; after.</h2>
       </div>
-      {{ gallery(shown) }}
+      {{ gallery(shown, true, site) }}
     </div>
   </section>
   {%- endif %}
 
-  <section class="band band-cream on-cream" id="process">
+  <section class="band band-sand on-cream" id="process">
     <div class="shell">
       <div class="hang">
         <div>
           <div class="flank"><span>How it goes</span></div>
-          <h2 class="d">You will know what is happening, the whole way through.</h2>
+          <h2 class="d">Here's how it works.</h2>
         </div>
         <div>
-          <p class="lede soft">Painting goes wrong in the same few ways: a price that moves,
-            a crew that does not show, and a mess left behind. Here is how we try to stay
-            clear of all three.</p>
+          <p class="lede soft">Four simple steps, from your first call to fresh paint.</p>
         </div>
       </div>
       {{ stepBlocks([
         { title: "Tell us about it",
-          body: "Fill in the form or call. Photos help a lot. This takes about two minutes." },
+          body: "Call us or fill out the form. Photos help a lot." },
         { title: "We come look",
-          body: "We measure, check the surfaces, and answer your questions. No charge, and no sales pitch." },
-        { title: "You get a written price",
-          body: "It lists the rooms, the prep, the paint, and the cost. You keep it. Nothing starts until you say so." },
+          body: "We stop by, look at the job, and answer your questions. It's free." },
+        { title: "You get a price",
+          body: "We give you the price in writing. Nothing starts until you say yes." },
         { title: "We paint",
-          body: "We protect your floors and furniture, work through the list, and tidy up before we go home each day." }
+          body: "We cover your floors and furniture, then get to work." }
       ]) }}
-      <p style="margin-top:48px"><a class="btn btn-dark" href="/contact/">Start with step one</a></p>
+      <p style="margin-top:48px"><a class="btn btn-dark" href="/contact/">Get a free estimate</a></p>
     </div>
   </section>
 
-  <section class="band band-2">
+  <section class="band band-cream on-cream">
     <div class="shell split">
       {% photo p.aboutPhoto, "The crew", "ph-tall", "Photo — the crew, or the owner on a job site. A real one beats a stock one." %}
       <div>
@@ -148,5 +141,5 @@ description: "Interior and exterior painting in Juniata County and Central Penns
 {%- endif %}
 
 {{ faq(p.faq) }}
-{{ finale(site, "Tell us what you are thinking about.",
-   "It takes about two minutes. We will call you back to set up a time to come look.") }}
+{{ finale(site, "Let's talk about your project.",
+   "It only takes two minutes. We'll call you back and set up a time to come look.") }}
