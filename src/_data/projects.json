@@ -1,6 +1,30 @@
 {
   "items": [
     {
+      "title": "Storefront",
+      "town": "",
+      "date": "2026-10-30",
+      "category": "Interior",
+      "before": "/assets/uploads/whitetail-storefront-before.jpg",
+      "after": "/assets/uploads/whitetail-storefront-after.jpg"
+    },
+    {
+      "title": "Basement bathroom",
+      "town": "",
+      "date": "2026-10-29",
+      "category": "Interior",
+      "before": "/assets/uploads/whitetail-bathroom-before.jpg",
+      "after": "/assets/uploads/whitetail-bathroom-after.jpg"
+    },
+    {
+      "title": "Home office",
+      "town": "",
+      "date": "2026-10-28",
+      "category": "Interior",
+      "before": "/assets/uploads/whitetail-office-before.jpg",
+      "after": "/assets/uploads/whitetail-office-after.jpg"
+    },
+    {
       "title": "Ceiling crack repair",
       "town": "",
       "date": "2026-10-01",

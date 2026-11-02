@@ -129,6 +129,9 @@ collections:
             fields:
               - { name: title, label: Step name, widget: string }
               - { name: body, label: What happens, widget: text }
+          - { name: stepsPhoto, label: Photo under the steps, widget: image, required: false,
+              hint: Optional. A photo of the work in progress, like patching or taping. }
+          - { name: stepsPhotoCaption, label: Caption for that photo, widget: string, required: false }
           - { name: galleryHeading, label: Photo section heading, widget: string }
           - name: faq
             label: Questions

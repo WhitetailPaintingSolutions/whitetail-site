@@ -521,3 +521,11 @@ header.site{background:rgba(26,23,20,.94)}
 /* keep headings from leaving one word alone on the last line */
 h1.d,h2.d{text-wrap:balance}
 #hero h1 .hl{display:block}
+
+/* Photo under the "How we do it" steps (service pages, optional) */
+.steps-photo{margin:56px 0 0;display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,4vw,48px);align-items:center}
+.steps-photo .ph{aspect-ratio:5/4}
+.steps-photo figcaption{font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2vw,23px);line-height:1.4}
+.steps-photo .eyebrow{display:block;margin-bottom:12px;font-family:'Inter',sans-serif}
+.ba-more{text-align:center;margin-top:22px}
+@media(max-width:900px){.steps-photo{grid-template-columns:1fr}}

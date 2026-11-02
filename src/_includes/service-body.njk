@@ -27,6 +27,13 @@
         <div><p class="lede soft">{{ p.stepsLede }}</p></div>
       </div>
       {{ stepBlocks(p.steps) }}
+      {#- Optional photo of the work in progress, set in the CMS ("Photo under the steps"). #}
+      {%- if p.stepsPhoto %}
+      <figure class="steps-photo">
+        {% photo p.stepsPhoto, p.stepsPhotoCaption or "Work in progress", "ph-wide", "" %}
+        {%- if p.stepsPhotoCaption %}<figcaption><span class="eyebrow">On the job</span>{{ p.stepsPhotoCaption }}</figcaption>{% endif %}
+      </figure>
+      {%- endif %}
     </div>
   </section>
 
@@ -38,7 +45,7 @@
         <div class="flank"><span>Our work</span></div>
         <h2 class="d">{{ p.galleryHeading }}</h2>
       </div>
-      {{ gallery(jobs | newestFirst | limit(3)) }}
+      {{ gallery(jobs | newestFirst | limit(4)) }}
     </div>
   </section>
   {%- endif %}

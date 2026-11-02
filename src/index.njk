@@ -51,10 +51,9 @@ description: "Interior and exterior painting in Juniata County and Central Penns
     </div>
   </section>
 
-  {#- Only jobs that have BOTH a before and an after photo are shown. One for now.
-      When there are more, change limit(1) to limit(3) and put the
-      "See more of our work" link back under the gallery. #}
-  {%- set shown = projects.items | selectattr("before") | selectattr("after") | newestFirst | limit(1) %}
+  {#- Only jobs that have BOTH a before and an after photo are shown.
+      The newest two show here. All of them are on the Our Work page. #}
+  {%- set shown = projects.items | selectattr("before") | selectattr("after") | newestFirst | limit(2) %}
   {%- if shown.length %}
   <section class="band">
     <div class="shell">
@@ -63,6 +62,9 @@ description: "Interior and exterior painting in Juniata County and Central Penns
         <h2 class="d">Before &amp; after.</h2>
       </div>
       {{ gallery(shown, true, site) }}
+      {%- if (projects.items | selectattr("before") | selectattr("after")).length > shown.length %}
+      <p class="ba-more"><a class="textlink" href="/work/">See more of our work &rarr;</a></p>
+      {%- endif %}
     </div>
   </section>
   {%- endif %}
