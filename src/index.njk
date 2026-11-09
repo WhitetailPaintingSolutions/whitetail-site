@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /
 title: "Whitetail Painting Solutions — Interior & Exterior Painting in Juniata County, PA"
-description: "Interior and exterior painting in Juniata County and Central Pennsylvania. Free estimates and a written price before we start."
+description: "Interior, exterior and commercial painting in Juniata County and Central Pennsylvania. Free estimates and a written price before we start."
 ---
 {% from "parts.njk" import faq, reviews as reviewBlock, finale, gallery, steps as stepBlocks %}
 {%- set p = pages.home -%}
@@ -18,7 +18,7 @@ description: "Interior and exterior painting in Juniata County and Central Penns
           <a class="btn" href="/contact/">Get a free estimate</a>
           <a class="tel" href="tel:{{ site.phoneLink }}">{{ site.phone }}</a>
         </div>
-        <p class="hero-note">Interior &middot; Exterior &middot; Decks &amp; fences</p>
+        <p class="hero-note">Interior &middot; Exterior &middot; Decks &amp; fences &middot; Commercial</p>
       </div>
       {% photo p.heroPhoto, "A finished room", "ph-tall", "Photo — your best finished room. Wide shot, daylight, nothing on the floor." %}
     </div>
@@ -33,10 +33,10 @@ description: "Interior and exterior painting in Juniata County and Central Penns
         </div>
         <div><p class="lede soft">{{ p.servicesLede }}</p></div>
       </div>
-      <div class="svc svc-3">
-        {#- Cabinets is hidden for now. To bring it back, add "cabinets" to this list,
-            remove svc-3 above, and add it back to the nav in _includes/base.njk. #}
-        {%- for k in ["interior","exterior","decks"] %}
+      <div class="svc">
+        {#- Four cards in a row. Cabinets is hidden for now: to bring it back, add "cabinets"
+            to this list and to the nav in _includes/base.njk. #}
+        {%- for k in ["interior","exterior","decks","commercial"] %}
         {%- set s = pages[k] %}
         <a class="card" href="/{{ k }}/">
           {% photo s.photo, s.category, "ph-sq", "Photo — " + s.photoHint %}

@@ -46,6 +46,20 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter('limit', (arr, n) => (arr || []).slice(0, n));
 
+  /* "Mifflintown, Mifflin, and Port Royal" -> ["Mifflintown", "Mifflin",
+     "Port Royal"]. Turns the CMS town groups into single places for the
+     business details Google reads. */
+  eleventyConfig.addFilter('townList', (groups) =>
+    (groups || []).flatMap((g) => String(g)
+      .replace(/,?\s+and\s+/g, ', ')
+      .split(',')
+      .map((t) => t.trim().replace(/^the\s+/i, ''))
+      .filter(Boolean)));
+
+  // Safe inside a <script type="application/ld+json"> block.
+  eleventyConfig.addFilter('jsonld', (v) =>
+    JSON.stringify(v).replace(/</g, '\\u003c'));
+
   // "01", "02" — the big numerals on the step blocks.
   eleventyConfig.addFilter('pad', (n) => String(n).padStart(2, '0'));
 

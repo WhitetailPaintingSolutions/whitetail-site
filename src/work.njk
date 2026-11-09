@@ -11,7 +11,8 @@ description: "Before and after photos of painting jobs finished by Whitetail Pai
 {%- set cats = [
   { key: "Interior", head: "Inside the house.", alt: false },
   { key: "Exterior", head: "Outside the house.", alt: true },
-  { key: "Decks & Fences", head: "Outside living.", alt: true }
+  { key: "Decks & Fences", head: "Outside living.", alt: true },
+  { key: "Commercial", head: "Shops and businesses.", alt: false }
 ] %}
 {%- for c in cats %}
 {%- set jobs = projects.items | byCategory(c.key) | selectattr("before") | selectattr("after") %}

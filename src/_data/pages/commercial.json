@@ -1,0 +1,51 @@
+{
+  "eyebrow": "Commercial painting",
+  "heading": "Shops, offices and storefronts.",
+  "lede": "We paint businesses too, inside and out. Tell us your hours, and we'll plan the work around them.",
+  "photo": "/assets/uploads/whitetail-storefront-after.jpg",
+  "includesHeading": "Inside and outside your business.",
+  "includes": [
+    "Storefronts and sales floors",
+    "Offices, break rooms and hallways",
+    "Restrooms",
+    "Outside walls, trim and doors",
+    "Filling holes and cracks before we paint",
+    "Priming stains and patches so they don't show through"
+  ],
+  "stepsLede": "A business can't close for a week. So we plan the work with you before we start.",
+  "steps": [
+    {
+      "title": "Walk through it together",
+      "body": "We look at the space with you and talk about your hours, your customers, and anything that can't be moved."
+    },
+    {
+      "title": "A price in writing",
+      "body": "You get one price, in writing. Nothing starts until you say yes."
+    },
+    {
+      "title": "One area at a time",
+      "body": "We work in sections and keep it tidy, so you can stay open where it makes sense."
+    },
+    {
+      "title": "Clean up every day",
+      "body": "We clean up as we go and leave the space ready for business."
+    }
+  ],
+  "galleryHeading": "Businesses we have painted.",
+  "faq": [
+    {
+      "question": "Can we stay open while you paint?",
+      "answer": "Often, yes. We work one area at a time and keep it tidy. When we come look, we'll talk through what works for your business."
+    },
+    {
+      "question": "What kinds of businesses do you paint?",
+      "answer": "Shops, storefronts, offices, break rooms, restrooms and hallways, inside and out."
+    },
+    {
+      "question": "How does pricing work?",
+      "answer": "The same as for a home. We come look, and then you get one price in writing. It won't change unless you ask for more work."
+    }
+  ],
+  "photoHint": "a finished storefront or office",
+  "category": "Commercial"
+}

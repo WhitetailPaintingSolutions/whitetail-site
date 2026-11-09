@@ -36,6 +36,8 @@ collections:
         description: Phone number, links, and service area. These appear on every page.
         fields:
           - { name: name, label: Business name, widget: string }
+          - { name: url, label: Website address, widget: string,
+              hint: "The site's own address with https and no slash at the end, like https://whitetailpaintingsolutions.com. Google and Facebook use it." }
           - name: phone
             label: Phone number (as people read it)
             widget: string
@@ -157,6 +159,11 @@ collections:
         file: src/_data/pages/decks.json
         fields: *servicefields
 
+      - name: commercial
+        label: Commercial page
+        file: src/_data/pages/commercial.json
+        fields: *servicefields
+
       - name: work
         label: Our Work page
         file: src/_data/pages/work.json
@@ -255,7 +262,7 @@ collections:
               - name: category
                 label: What kind of job
                 widget: select
-                options: ['Interior', 'Exterior', 'Cabinets', 'Decks & Fences']
+                options: ['Interior', 'Exterior', 'Cabinets', 'Decks & Fences', 'Commercial']
               - { name: before, label: Before photo, widget: image, required: false }
               - { name: after, label: After photo, widget: image, required: false }
 

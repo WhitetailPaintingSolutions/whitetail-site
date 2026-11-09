@@ -1,0 +1,15 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+{#- The list of pages Google is asked to read. Hidden pages (Cabinets)
+    and draft notes stay out. -#}
+{%- set siteUrl = site.url | default("https://whitetailpaintingsolutions.com") -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for p in collections.all %}
+{%- if p.url and p.url != "/cabinets/" and not p.data.draft %}
+  <url><loc>{{ siteUrl }}{{ p.url }}</loc></url>
+{%- endif %}
+{%- endfor %}
+</urlset>

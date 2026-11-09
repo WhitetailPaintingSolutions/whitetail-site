@@ -13,6 +13,41 @@
 <meta name="description" content="{{ description }}">
 <meta name="theme-color" content="#0B0B0C">
 
+{# What Google and Facebook read. The address comes from Settings →
+   Website address; every page points at its own address on that one
+   domain, so the www and Netlify copies don't count as duplicates. #}
+{%- set siteUrl = site.url | default("https://whitetailpaintingsolutions.com") %}
+{%- set shareImg = siteUrl + (cover if cover else "/assets/share.jpg") %}
+<link rel="canonical" href="{{ siteUrl }}{{ page.url }}">
+<meta property="og:type" content="{{ 'article' if cover else 'website' }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description or summary }}">
+<meta property="og:url" content="{{ siteUrl }}{{ page.url }}">
+<meta property="og:image" content="{{ shareImg }}">
+<meta name="twitter:card" content="summary_large_image">
+{%- if page.url == "/" %}
+{%- set same = [] %}
+{%- if site.facebook %}{% if same.push(site.facebook) %}{% endif %}{% endif %}
+{%- if site.instagram %}{% if same.push(site.instagram) %}{% endif %}{% endif %}
+{%- set places = [] %}
+{%- for t in site.areaTowns | townList %}{% if places.push({ "@type": "Place", "name": t + ", PA" }) %}{% endif %}{% endfor %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@type": "HousePainter",
+  "name": site.name,
+  "url": siteUrl + "/",
+  "telephone": site.phoneLink,
+  "image": siteUrl + "/assets/share.jpg",
+  "logo": siteUrl + "/assets/monogram.png",
+  "description": description,
+  "founder": { "@type": "Person", "name": "Nick Sheaffer" },
+  "address": { "@type": "PostalAddress", "addressRegion": "PA", "addressCountry": "US" },
+  "areaServed": places,
+  "sameAs": same
+} | jsonld | safe }}</script>
+{%- endif %}
+
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -34,7 +69,8 @@
 {% set nav = [
   { url: "/interior/", label: "Interior" },
   { url: "/exterior/", label: "Exterior" },
-  { url: "/decks/",    label: "Decks &amp; Fences" }
+  { url: "/decks/",    label: "Decks &amp; Fences" },
+  { url: "/commercial/", label: "Commercial" }
 ] %}
 
 <header class="site">
@@ -46,7 +82,7 @@
     <nav class="main">
       <div class="drop">
         <button type="button" aria-expanded="false"
-          {%- if page.url in ["/interior/","/exterior/","/cabinets/","/decks/"] %} aria-current="true"{% endif %}>Services</button>
+          {%- if page.url in ["/interior/","/exterior/","/cabinets/","/decks/","/commercial/"] %} aria-current="true"{% endif %}>Services</button>
         <div class="drop-panel">
           {%- for n in nav %}
           <a href="{{ n.url }}">{{ n.label | safe }}</a>

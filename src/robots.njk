@@ -1,0 +1,9 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+{%- set siteUrl = site.url | default("https://whitetailpaintingsolutions.com") -%}
+User-agent: *
+Disallow: /admin/
+
+Sitemap: {{ siteUrl }}/sitemap.xml
