@@ -156,6 +156,7 @@ const ENDPOINT = (typeof window !== 'undefined' && window.WT_ENDPOINT) || '';
       });
       if (!res.ok) throw new Error(res.status);
       form.reset();
+      if (window.gtag) gtag('event', 'generate_lead', { form: 'estimate', page: data.source_page });
       say('Thank you for your submission. We will be reaching out shortly.', true);
     } catch (err) {
       say('That did not send. Please call us at 717-582-1146 and we will ' +
@@ -166,3 +167,10 @@ const ENDPOINT = (typeof window !== 'undefined' && window.WT_ENDPOINT) || '';
     }
   });
 })();
+
+/* Phone taps count in Google Analytics as phone_call_click (only once
+   an Analytics ID is set in the CMS; otherwise this does nothing). */
+document.addEventListener('click', e => {
+  const a = e.target.closest && e.target.closest('a[href^="tel:"]');
+  if (a && window.gtag) gtag('event', 'phone_call_click', { page: location.pathname });
+});

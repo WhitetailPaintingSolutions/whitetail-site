@@ -60,6 +60,13 @@
 {# The endpoint the estimate form posts to. Set it in the CMS under
    Settings and every page picks it up. Empty means the form validates
    and shows the thank you but delivers nothing — see assets/site.js. #}
+{# Google Analytics. Only loads once a Measurement ID is pasted into
+   Settings in the CMS. Phone taps and sent estimate requests are counted
+   as their own events in assets/site.js. #}
+{%- if site.gaId %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.gaId }}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{{ site.gaId }}');</script>
+{%- endif %}
 <script>window.WT_ENDPOINT = {{ site.formEndpoint | default("") | dump | safe }};</script>
 </head>
 <body>

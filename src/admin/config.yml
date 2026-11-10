@@ -52,6 +52,9 @@ collections:
               hint: Paste the full address. Leave empty and the link disappears rather than going nowhere. }
           - { name: instagram, label: Instagram profile URL, widget: string, required: false,
               hint: Paste the full address. Leave empty and the link disappears rather than going nowhere. }
+          - { name: gaId, label: Google Analytics ID, widget: string, required: false,
+              pattern: ['^(G-[A-Z0-9]{6,})?$', 'Starts with G- and is all capital letters and numbers, like G-AB12CD34EF'],
+              hint: "The Measurement ID from Google Analytics (Admin → Data streams → the website). Paste it here and every page starts counting visits, phone taps and estimate requests. Leave empty to switch it off." }
           - { name: areaShort, label: Service area (short), widget: string,
               hint: Shown in the footer. For example — Juniata County, Pennsylvania }
           - { name: areaLong, label: Service area (long), widget: string,
